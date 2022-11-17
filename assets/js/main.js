@@ -43,3 +43,11 @@ function incrementScore() {
 	currentScore += 1;
 	document.getElementById("score").innerHTML = currentScore;
 }
+
+// Attach event listener to guess button
+
+let guessButton = document.getElementById("submitguess");
+guessButton.addEventListener('click', function(){
+	// check the answer here
+	incrementScore();
+});
