@@ -5,7 +5,10 @@ let songs = [];
  * Function to load genre specific songs
  */
 const loadGenreSongs = (genre) => {
-
+    let results = songs.filter(song => {
+        return song.genre === genre;
+      });
+    songs = results;
 }
 
 /**
@@ -22,7 +25,9 @@ async function loadAllSongs() {
  * Gets a song from the array
  */
 const getSong = () => {
-    currentSong = songs[Math.floor(Math.random()*songs.length)];
+    let index = Math.floor(Math.random()*songs.length);
+    currentSong = songs[index];
+    songs.pop(index);
     addSongToIframe();
 }
 
