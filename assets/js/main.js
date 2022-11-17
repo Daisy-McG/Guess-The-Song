@@ -27,6 +27,14 @@ window.onclick = function (event) {
 
 // Code for timer
 
+// Attach event listener to start button
+
+let startButton = document.getElementById("startbutton");
+startButton.addEventListener('click', function(){
+	let guessButton = document.getElementById('submitguess');
+	guessButton.classList.remove('disable');
+});
+
 let timer = 60;
 let countdown = setInterval(() => {
 	if (timer > 0) {
