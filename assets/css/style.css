@@ -153,41 +153,34 @@ footer {
 
 /* Code to hide spotify box */
 
-.overlay-one {
+.iframe-container {
     position: relative;
-    width: 300px;
-    margin: 0 auto;
-    height: 265px;
+    width: 48px;
+    height: 45px;
+    overflow: hidden;
 }
 
-.overlay-two {
+.iframe-container iframe{
     position: absolute;
-    width: 212px;
-    margin: 0 auto;
-    height: 354px;
+    z-index: 1;
+    bottom: -67px;
+    right: 0%;
+    opacity: 0;
 }
 
-.overlay-one video {
-    width: 100%;
-    display: block;
-}
-
-.overlay-one:before {
-    content: '';
+.iframe-container .fake-btn{
     position: absolute;
-    background: #fff;
-    top: -2px;
-    right: -5px;
-    bottom: 0;
-    left: 0;
+    z-index: 2;
+    top: 5px;
+    left: 9px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: none;
+    background: rgba(0, 0, 255, 1);
+    pointer-events: none;
+    cursor: pointer;
 }
 
-.overlay-two:before {
-    content: '';
-    position: absolute;
-    background: #fff;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: -5px;
-}
+
+
