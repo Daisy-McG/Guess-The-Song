@@ -28,7 +28,6 @@ const getSong = () => {
     let index = Math.floor(Math.random()*songs.length);
     currentSong = songs[index];
     songs.pop(index);
-    console.log(songs);
     addSongToIframe();
 }
 
