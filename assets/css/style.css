@@ -132,7 +132,7 @@ header {
     height: 6rem;
 }
 
-.submitguess {
+#submitguess {
     width: 20%;
     height: 7rem;
 }
