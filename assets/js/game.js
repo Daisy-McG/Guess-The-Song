@@ -1,34 +1,40 @@
 let currentSong = {};
-
+let songs = [];
 
 /**
- * Function to get a random song from the API
+ * Function to load genre specific songs
  */
-let getSong = () => {
-    fetch('https://kareoke.p.rapidapi.com/v1/song/random')
-    .then(jsonData => jsonData.json())
-    .then(data => updateCurrentSong(data))
+const loadGenreSongs = (genre) => {
+
 }
 
 /**
- * Update current song with title and uri
- * @param {Object} song 
+ * Function to load all songs
  */
-let updateCurrentSong = (song) => {
-    currentSong.title = song.spotify.title
-    currentSong.id = song.spotify.id
+async function loadAllSongs() {
+    const res = await fetch("assets/js/songs.json");
+    const data = await res.json();
+    songs = data;
+    getSong();
+}
+
+/**
+ * Gets a song from the array
+ */
+const getSong = () => {
+    currentSong = songs[Math.floor(Math.random()*songs.length)];
     addSongToIframe();
 }
 
 /**
  * Function to update HTML with song
  */
-let addSongToIframe = () => {
+const addSongToIframe = () => {
     document.getElementById("spotify-player").src = `https://open.spotify.com/embed/track/${currentSong.id}`;
 }
 
 
 // Event Listener to get song on initial page load
 window.addEventListener("load", () => {
-    getSong();
+    songs = loadAllSongs();
 });
