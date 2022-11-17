@@ -24,8 +24,8 @@ window.onclick = function (event) {
 	}
 }
 
-// Code for timer
 
+// Code for timer
 
 let timer = 60;
 let countdown = setInterval(() => {
@@ -36,3 +36,10 @@ let countdown = setInterval(() => {
 }, 1000);
 
 
+// Increment score
+
+function incrementScore() {
+	let currentScore = parseInt(document.getElementById("score").innerHTML);
+	currentScore += 1;
+	document.getElementById("score").innerHTML = currentScore;
+}
