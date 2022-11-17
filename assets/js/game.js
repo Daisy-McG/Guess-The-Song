@@ -5,7 +5,10 @@ let songs = [];
  * Function to load genre specific songs
  */
 const loadGenreSongs = (genre) => {
-
+    let results = songs.filter(song => {
+        return song.genre === genre;
+      });
+    songs = results;
 }
 
 /**
