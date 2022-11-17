@@ -8,18 +8,31 @@ var btn = document.getElementById("instructions_modal_btn");
 var span = document.getElementById("instructions_modal_close");
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+btn.onclick = function () {
+	modal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+span.onclick = function () {
+	modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+window.onclick = function (event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
 }
+
+// Code for timer
+
+
+let timer = 60;
+let countdown = setInterval(() => {
+	if (timer > 0) {
+		document.getElementById("timer").innerHTML = timer;
+		timer -= 1;
+	}
+}, 1000);
+
+
