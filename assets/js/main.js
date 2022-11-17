@@ -34,22 +34,15 @@ startButton.addEventListener('click', function(){
 	let guessButton = document.getElementById('submitguess');
 	guessButton.classList.remove('disable');
 	let timer = 60;
-	setInterval(() => {
-		if (timer > 0) {
+	let countdown = setInterval(() => {
+		if (timer >= 0) {
 			document.getElementById("timer").innerHTML = timer;
 			timer -= 1;
+		} else {
+			guessButton.classList.add('disable');
 		}
 	}, 1000);
 });
-
-// let timer = 60;
-// let countdown = setInterval(() => {
-// 	if (timer > 0) {
-// 		document.getElementById("timer").innerHTML = timer;
-// 		timer -= 1;
-// 	}
-// }, 1000);
-
 
 // Increment score
 
