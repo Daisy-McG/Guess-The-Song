@@ -22,7 +22,10 @@ async function loadAllSongs() {
  * Gets a song from the array
  */
 const getSong = () => {
-    currentSong = songs[Math.floor(Math.random()*songs.length)];
+    let index = Math.floor(Math.random()*songs.length);
+    currentSong = songs[index];
+    songs.pop(index);
+    console.log(songs);
     addSongToIframe();
 }
 
