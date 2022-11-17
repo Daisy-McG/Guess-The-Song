@@ -26,11 +26,13 @@ window.onclick = function (event) {
 
 // Code for timer
 
-let timer = 60;
 
+let timer = 60;
 let countdown = setInterval(() => {
-	if (timer >0) {
-		console.log(timer);
+	if (timer > 0) {
+		document.getElementById("timer").innerHTML = timer;
 		timer -= 1;
 	}
 }, 1000);
+
+
