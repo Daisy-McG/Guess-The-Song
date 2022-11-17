@@ -39,6 +39,30 @@ const addSongToIframe = () => {
 }
 
 
+let songInput = document.getElementById("user-song")
+
+
+// Event Listener to Get user answer
+songInput.addEventListener("submit", e=>{
+    e.preventDefault()
+    let input = document.getElementById("user-answer");
+    let answer = input.value;
+    input.value = ""
+    checkAnswer(answer);
+})
+
+/**
+ * Function to compare user answer
+ */
+function checkAnswer(answer){
+    if(answer.toLowerCase() === currentSong.title.toLowerCase()){
+        console.log("correct answer")
+    } else{
+        console.log("incorrect Answer")
+    }
+}
+
+
 // Event Listener to get song on initial page load
 window.addEventListener("load", () => {
     songs = loadAllSongs();

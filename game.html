@@ -10,16 +10,22 @@
   </head>
   <body>
 
-    <div class="overlay-one">
-      <div class="overlay-two"></div>
+    <form id="user-song">
+      <label for="user-answer">Enter Song</label>
+      <input type="text" name="user-answer" id="user-answer">
+      <input type="submit" value="Send Song">
+    </form>
+    <div class="iframe-container">
       <iframe
         id="spotify-player"
         width="300"
-        height="380"
+        height="300"
         frameborder="0"
         allowtransparency="true"
         allow="encrypted-media"
-      ></iframe>
+      >
+      </iframe>
+      <button class="fake-btn">Click</button>
     </div>
 
     <script src="assets/js/game.js"></script>
