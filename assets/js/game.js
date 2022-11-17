@@ -58,7 +58,7 @@ function checkAnswer(answer){
     if(answer.toLowerCase() === currentSong.title.toLowerCase()){
         console.log("correct answer")
     } else{
-        console.log("incorrect")
+        console.log("incorrect Answer")
     }
 }
 
