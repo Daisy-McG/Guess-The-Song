@@ -1,97 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One&display=swapLato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.overlay-one {
-    position: relative;
-    width: 300px;
-    margin: 0 auto;
-    height: 265px;
-}
-
-.overlay-two {
-    position: absolute;
-    width: 212px;
-    margin: 0 auto;
-    height: 354px;
-}
-
-.overlay-one video {
-    width: 100%;
-    display: block;
-}
-
-.overlay-one:before {
-    content: '';
-    position: absolute;
-    background: #fff;
-    top: -2px;
-    right: -5px;
-    bottom: 0;
-    left: 0;
-}
-
-.overlay-two:before {
-    content: '';
-    position: absolute;
-    background: #fff;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: -5px;
-}
-
-/* The Modal (background) */
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-    background-color: red;
-    margin: 15% auto;
-    /* 15% from the top and centered */
-    padding: 10px;
-    border: 3px solid black;
-    width: 80%;
-    /* Could be more or less, depending on screen size */
-}
-
-.modal-content ul {
-    padding: 10px;
-    list-style: none;
-}
-
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 * {
     font-family: 'Raleway', sans-serif;
     margin: 0;
@@ -241,4 +149,45 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+/* Code to hide spotify box */
+
+.overlay-one {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+    height: 265px;
+}
+
+.overlay-two {
+    position: absolute;
+    width: 212px;
+    margin: 0 auto;
+    height: 354px;
+}
+
+.overlay-one video {
+    width: 100%;
+    display: block;
+}
+
+.overlay-one:before {
+    content: '';
+    position: absolute;
+    background: #fff;
+    top: -2px;
+    right: -5px;
+    bottom: 0;
+    left: 0;
+}
+
+.overlay-two:before {
+    content: '';
+    position: absolute;
+    background: #fff;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -5px;
 }
