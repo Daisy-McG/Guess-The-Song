@@ -205,5 +205,13 @@ footer {
     left: 50px;
 }
 
-
+.radio-screen {
+    width: 700px;
+    height: 250px;
+    background: #f79808;
+    border-radius: 30px;
+    position: absolute;
+    left: 50px;
+    top: 25px;
+}
 
