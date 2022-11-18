@@ -53,3 +53,19 @@ guessButton.addEventListener('click', function(){
 });
 
 // Validate username
+
+function validateUsername() {
+	let username = document.getElementById("username").value;
+	username = username.trim();
+	if (!username) {
+		alert('Username cannot be blank');
+		// I'll turn this into a prettier modal when it's not 2am
+	}
+}
+
+// Add event listener to username button
+
+let usernameButton = document.getElementById("submit_user");
+usernameButton.addEventListener('click', function(){
+	validateUsername();
+});
