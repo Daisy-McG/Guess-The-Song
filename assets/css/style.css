@@ -175,7 +175,7 @@ footer {
     opacity: 0;
 }
 
-.iframe-container .fake-btn{
+.iframe-container .play-button{
     position: absolute;
     z-index: 2;
     top: 5px;
