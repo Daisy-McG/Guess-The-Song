@@ -51,3 +51,5 @@ guessButton.addEventListener('click', function(){
 	// check the answer here
 	incrementScore();
 });
+
+// Validate username
