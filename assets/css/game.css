@@ -146,3 +146,15 @@ header {
 .timerscore {
     border: 1px solid #888;
 }
+
+#user-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#user-info fieldset {
+    padding: 1rem;
+    margin: 1rem 0;
+}
