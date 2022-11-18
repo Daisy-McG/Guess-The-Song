@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+    <link rel="stylesheet" href="assets/css/index.css">
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <title>Guess The Song</title>
 </head>
 
@@ -17,60 +20,59 @@
     </header>
 
     <section id="center">
-        <div id="welcome">
-            <div>
-                <p>Welcome to the game.....</p>
-                <p>blah blah blah</p>
-            </div>
-            <div id="instructions">
-                <!-- Trigger/Open The Modal -->
-                <button id="instructions_modal_btn" aria-label="instructions" aria-hidden>Instructions</button>
-
-                <!-- The Modal -->
-                <div id="instructions_modal">
-
-                    <!-- Modal content -->
-                    <div id="instructions_modal_content">
-                        <span id="instructions_modal_close">close</span>
-                        <p>There shall in that time be rumors of things going astray, erm, and there shall be a great
-                            confusion as to where things really are, and nobody will really know where lieth those
-                            little things with the sort of raffia-work base, that has an attachment. At that time, a
-                            friend shall lose his friend's hammer, and the young shall not know where lieth the things
-                            possessed by their fathers that their fathers put there only just the night before, about
-                            eight O'clock.</p>
-                    </div>
-                </div>
+        <a href="game.html"><button>Start Game</button></a>
+        <!-- Trigger/Open The Modal -->
+        <button id="instructions_modal_btn" aria-label="instructions" aria-hidden>Instructions</button>
+        <!-- The Modal -->
+        <div id="instructions_modal">
+            <!-- Modal content -->
+            <div id="instructions_modal_content">
+                <span id="instructions_modal_close">close</span>
+                <p>There shall in that time be rumors of things going astray, erm, and there shall be a great
+                    confusion as to where things really are, and nobody will really know where lieth those
+                    little things with the sort of raffia-work base, that has an attachment. At that time, a
+                    friend shall lose his friend's hammer, and the young shall not know where lieth the things
+                    possessed by their fathers that their fathers put there only just the night before, about
+                    eight O'clock.</p>
             </div>
         </div>
-
-        <div id="info">
-            <p>info</p>
-            <button id="startbutton">start</button>
-        </div>
-
-        <div id="timerscore">
-            <div id="timer" class="timerscore">timer</div>
-            <div id="score" class="timerscore">0</div>
-        </div>
-
-        <div id="answer">
-            <div id="answerform">
-                <form id="guessactions" action="#">
-                    <label for="answer"></label>
-                    <textarea class="guesstext" rows="4" cols="35" name="answer" value="Your Guess"
-                        form="guessactions"></textarea>
-                    <input id="submitguess" type="submit" value="Guess">
-                </form>
-            </div>
-        </div>
+    </div>
+</div>
     </section>
 
-    <footer>
-        <div id="gitpod">
-            <a href="https://github.com/Daisy-McG/Guess-The-Song" target="_blank">GitHub</a>
+    <section class="footer">
+        <div class="github-links">
+          <div class="link-container">
+            <p>Agustin</p>
+            <a href=""><i class="fa-brands fa-github"></i></a>
+          </div>
+          <div class="link-container">
+            <p>Carlos</p>
+            <a href=""><i class="fa-brands fa-github"></i></a>
+          </div>
+          <div class="link-container">
+            <p>Cheryl</p>
+            <a href=""><i class="fa-brands fa-github"></i></a>
+          </div>
+          <div class="link-container">
+            <p>Claire</p>
+            <a href=""><i class="fa-brands fa-github"></i></a>
+          </div>
+          <div class="link-container">
+            <p>Daisy</p>
+            <a href=""><i class="fa-brands fa-github"></i></a>
+          </div>
+          <div class="link-container">
+            <p>Mark</p>
+            <a href=""><i class="fa-brands fa-github"></i></a>
+          </div>
         </div>
-    </footer>
+      </section>
+
+    <a href="game.html">test</a>
     <script src="assets/js/main.js"></script>
+
+
 </body>
 
 </html>

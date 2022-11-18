@@ -91,16 +91,6 @@ header {
     cursor: pointer;
 }
 
-#timerscore {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 5.5%;
-}
-
-.timerscore {
-    border: 1px solid #888;
-}
-
 /* info panel */
 #info {
     height: 100px;
@@ -156,8 +146,16 @@ footer {
     align-items: flex-end;
 }
 
-/* Code to hide spotify box */
+.mainpage_box {
+    border: 1px solid black;
+    width: 80%;
+    margin: 0.5rem auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
 
+<<<<<<< HEAD:assets/css/style.css
 .iframe-container {
     position: absolute;
     width: 48px;
@@ -165,16 +163,28 @@ footer {
     overflow: hidden;
     bottom: 50px;
     right: 50px;
+=======
+/* Footer Styles */
+.footer {
+    width: 100vw;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    border-top: solid 3px #000;
+    box-shadow: 5px 5px 8px 5px rgb(36, 36, 36);
+>>>>>>> f08809302c00b5adea61dee2ec582f0e5615d6be:assets/css/index.css
 }
 
-.iframe-container iframe{
-    position: absolute;
-    z-index: 1;
-    bottom: -67px;
-    right: 0%;
-    opacity: 0;
+.github-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95vw;
+    margin: 0 auto;
+
 }
 
+<<<<<<< HEAD:assets/css/style.css
 .iframe-container .play-button{
     position: absolute;
     z-index: 2;
@@ -222,5 +232,27 @@ footer {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+=======
+.link-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5% 0;
 }
 
+.link-container p {
+    font-size: 1.25rem;
+}
+
+.link-container i {
+    color: var(--yellow);
+    font-size: 1.5rem;
+>>>>>>> f08809302c00b5adea61dee2ec582f0e5615d6be:assets/css/index.css
+}
+
+.link-container i:hover,
+.link-container i:focus {
+    color: var(--blue);
+    font-size: 1.5rem;
+}

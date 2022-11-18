@@ -1,5 +1,6 @@
 let currentSong = {};
 let songs = [];
+let userName;
 
 /**
  * Function to load genre specific songs
@@ -37,6 +38,29 @@ const getSong = () => {
 const addSongToIframe = () => {
     document.getElementById("spotify-player").src = `https://open.spotify.com/embed/track/${currentSong.id}`;
 }
+
+let userInfo = document.getElementById("user-info")
+// Event Listener to Get user info
+userInfo.addEventListener("submit", e=>{
+    e.preventDefault();
+    //get username
+    userName = document.getElementById("user-name").value;
+    //get category selection
+    let selectedCategory = document.querySelector("#user-info input[type='radio']:checked").value;
+    console.log(selectedCategory)
+    //clear username input value
+    document.getElementById("user-name").value = "";
+    //filter if a category is selected
+    if(selectedCategory !== "all"){
+        loadGenreSongs(selectedCategory)
+    }
+    //hide and show correct elements from radio box
+    document.querySelectorAll("[data-element]").forEach(el=>{
+        el.getAttribute("data-element") === "game" ? el.classList.remove("hide") : el.classList.add("hide");
+    });
+     // Add function here to start the game
+})
+
 
 
 let songInput = document.getElementById("user-song")

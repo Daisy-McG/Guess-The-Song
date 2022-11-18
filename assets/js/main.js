@@ -27,14 +27,22 @@ window.onclick = function (event) {
 
 // Code for timer
 
-let timer = 60;
-let countdown = setInterval(() => {
-	if (timer > 0) {
-		document.getElementById("timer").innerHTML = timer;
-		timer -= 1;
-	}
-}, 1000);
+// Attach event listener to start button
 
+let startButton = document.getElementById("startbutton");
+startButton.addEventListener('click', function(){
+	let guessButton = document.getElementById('submitguess');
+	guessButton.classList.remove('disable');
+	let timer = 60;
+	let countdown = setInterval(() => {
+		if (timer >= 0) {
+			document.getElementById("timer").innerHTML = timer;
+			timer -= 1;
+		} else {
+			guessButton.classList.add('disable');
+		}
+	}, 1000);
+});
 
 // Increment score
 
@@ -50,4 +58,22 @@ let guessButton = document.getElementById("submitguess");
 guessButton.addEventListener('click', function(){
 	// check the answer here
 	incrementScore();
+});
+
+// Validate username
+
+function validateUsername() {
+	let username = document.getElementById("username").value;
+	username = username.trim();
+	if (!username) {
+		alert('Username cannot be blank');
+		// I'll turn this into a prettier modal when it's not 2am
+	}
+}
+
+// Add event listener to username button
+
+let usernameButton = document.getElementById("submit_user");
+usernameButton.addEventListener('click', function(){
+	validateUsername();
 });
