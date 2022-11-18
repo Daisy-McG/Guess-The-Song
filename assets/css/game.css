@@ -11,6 +11,10 @@
     padding: 0;
 }
 
+.hide{
+    display: none!important;
+}
+
 /* Code to hide spotify box */
 
 .iframe-container {
