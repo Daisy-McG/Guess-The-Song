@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One&display=swapLato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --yellow: #f79808;
+    --blue: #2b78e4;
+}
+
 * {
     font-family: 'Raleway', sans-serif;
     margin: 0;
@@ -179,7 +184,7 @@ footer {
     height: 30px;
     width: 30px;
     border: none;
-    background: #2b78e4;
+    background: var(--blue);
     pointer-events: none;
     cursor: pointer;
 }
@@ -188,14 +193,14 @@ footer {
 .radio-box {
     width: 800px;
     height: 400px;
-    background-color: #000000;
-    border: 30px solid #f79808;
+    background-color: black;
+    border: 30px solid var(--yellow);
     border-radius: 30px;
     position: relative;
 }
 
 .next-button {
-    background-color: #2b78e4;
+    background-color: var(--blue);
     height: 30px;
     width: 30px;
     border: none;
@@ -208,7 +213,7 @@ footer {
 .radio-screen {
     width: 700px;
     height: 250px;
-    background: #f79808;
+    background-color: var(--yellow);
     border-radius: 30px;
     position: absolute;
     left: 50px;
