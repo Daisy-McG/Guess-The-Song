@@ -154,10 +154,12 @@ footer {
 /* Code to hide spotify box */
 
 .iframe-container {
-    position: relative;
+    position: absolute;
     width: 48px;
     height: 45px;
     overflow: hidden;
+    bottom: 50px;
+    right: 50px;
 }
 
 .iframe-container iframe{
@@ -177,9 +179,19 @@ footer {
     height: 30px;
     width: 30px;
     border: none;
-    background: rgba(0, 0, 255, 1);
+    background: #2b78e4;
     pointer-events: none;
     cursor: pointer;
+}
+
+/* radio game screen */
+.radio-box {
+    width: 800px;
+    height: 400px;
+    background-color: #000000;
+    border: 30px solid #f79808;
+    border-radius: 30px;
+    position: relative;
 }
 
 
