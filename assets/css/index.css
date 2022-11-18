@@ -91,16 +91,6 @@ header {
     cursor: pointer;
 }
 
-#timerscore {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 5.5%;
-}
-
-.timerscore {
-    border: 1px solid #888;
-}
-
 /* info panel */
 #info {
     height: 100px;
@@ -156,51 +146,6 @@ footer {
     align-items: flex-end;
 }
 
-/* Code to hide spotify box */
-
-.iframe-container {
-    position: absolute;
-    width: 48px;
-    height: 45px;
-    overflow: hidden;
-}
-
-.iframe-container iframe{
-    position: absolute;
-    z-index: 1;
-    bottom: -67px;
-    right: 0%;
-    opacity: 0;
-}
-
-.iframe-container .play-button{
-    position: absolute;
-    z-index: 2;
-    top: 5px;
-    left: 9px;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    border: none;
-    background: var(--blue);
-    pointer-events: none;
-    cursor: pointer;
-}
-
-.overlay-two:before {
-    content: '';
-    position: absolute;
-    background: #fff;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: -5px;
-}
-
-.disable {
-    pointer-events: none;
-}
-
 .mainpage_box {
     border: 1px solid black;
     width: 80%;
@@ -208,41 +153,6 @@ footer {
     padding: 1rem;
     display: flex;
     justify-content: space-between;
-}
-
-/* radio game screen */
-.radio-box {
-    width: 800px;
-    height: 400px;
-    background-color: black;
-    border: 30px solid var(--yellow);
-    border-radius: 30px;
-    position: relative;
-}
-
-.next-button {
-    background-color: var(--blue);
-    height: 30px;
-    width: 30px;
-    border: none;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
-}
-
-.radio-screen {
-    width: 700px;
-    height: 250px;
-    background-color: var(--yellow);
-    border-radius: 30px;
-    position: absolute;
-    left: 50px;
-    top: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 /* Footer Styles */
@@ -283,6 +193,6 @@ footer {
 
 .link-container i:hover,
 .link-container i:focus {
-    color: var(--blue)
+    color: var(--blue);
     font-size: 1.5rem;
 }
