@@ -194,5 +194,16 @@ footer {
     position: relative;
 }
 
+.next-button {
+    background-color: #2b78e4;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+}
+
 
 
