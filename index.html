@@ -13,99 +13,87 @@
 </head>
 
 <body>
-    <header>
-        <div id="title">
-            <h1>Guess The Song</h1>
-        </div>
-    </header>
-
-    <section id="center">
-        <div id="welcome">
-            <div>
-                <p>Welcome to the game.....</p>
-                <p>blah blah blah</p>
+    <main>
+        <header>
+            <div id="title">
+                <h1>Guess The Song</h1>
             </div>
-            <div id="instructions">
-                <!-- Trigger/Open The Modal -->
-                <button id="instructions_modal_btn" aria-label="instructions" aria-hidden>Instructions</button>
-
-                <!-- The Modal -->
-                <div id="instructions_modal">
-
-                    <!-- Modal content -->
-                    <div id="instructions_modal_content">
-                        <span id="instructions_modal_close">close</span>
-                        <p>There shall in that time be rumors of things going astray, erm, and there shall be a great
-                            confusion as to where things really are, and nobody will really know where lieth those
-                            little things with the sort of raffia-work base, that has an attachment. At that time, a
-                            friend shall lose his friend's hammer, and the young shall not know where lieth the things
-                            possessed by their fathers that their fathers put there only just the night before, about
-                            eight O'clock.</p>
+        </header>
+        <section id="center">
+            <div id="welcome">
+                <div>
+                    <p>Welcome to Guess The Song.</p>
+                    <div>
+                        <p>Developed by TEAM11 as part of</p>
+                        <div class="codeinst boldandpad">
+                            <p>CI Hackathon Nov 2022</p>
+                        </div>
+                        <div class="boldandpad">
+                            <p>Daisy</p>
+                            <p>Carlos</p>
+                            <p>Cheryl</p>
+                            <p>Agustin</p>
+                            <p>Claire</p>
+                            <p>Mark</p>
+                        </div>
+                    </div>
+                    <div class="github">
+                        <p>GitHub pages can be accessed from the footer.</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="info">
-            <p>info</p>
-            <button id="startbutton">start</button>
-        </div>
-        <div class="mainpage_box">
-            <p>Please enter your username</p>
-            <input type="text-box" id="username">
-            <button data-type="submit" id="submit_user">Submit</button>
-        </div>
+            <div id="instructions">
+                <h2>Instructions:</h2>
+                <ol>
+                    <li><i class="fa-solid fa-music"></i> Select the genre that you would like to guess against.</li>
+                    <li><i class="fa-solid fa-music"></i> When you press the start button, game the game will start.
+                    </li>
+                    <li><i class="fa-solid fa-music"></i> You have 60 seconds to type the name of the song playing in
+                        the
+                        answer box, and submit it.</li>
+                    <li><i class="fa-solid fa-music"></i> The quicker the answer, the more points you get.</li>
+                    <li><i class="fa-solid fa-music"></i> You have 3 lives before the game ends.</li>
+                    <li><i class="fa-solid fa-music"></i> You will get added to the leader board at the end if you score
+                        in
+                        the top 20</li>
+                </ol>
+            </div>
+            <div class="startbutton-div">
+                <a href="#"><button id="startbutton">Start Game</button></a>
+            </div>
+        </section>
+    </main>
 
-        <div class="mainpage_box">
-            <div id="timer" class="timerscore">timer</div>
-            <div id="score" class="timerscore">0</div>
-        </div>
-
-        <div id="answer">
-            <div id="answerform">
-                <form id="guessactions" action="#">
-                    <label for="answer"></label>
-                    <textarea class="guesstext" rows="4" cols="35" name="answer" value="Your Guess"
-                        form="guessactions"></textarea>
-                    <input class="disable" id="submitguess" type="submit" value="Guess">
-                </form>
+    <footer class="footer">
+        <div class="github-links">
+            <div class="link-container">
+                <p>Agustin</p>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="link-container">
+                <p>Carlos</p>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="link-container">
+                <p>Cheryl</p>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="link-container">
+                <p>Claire</p>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="link-container">
+                <p>Daisy</p>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div class="link-container">
+                <p>Mark</p>
+                <a href=""><i class="fa-brands fa-github"></i></a>
             </div>
         </div>
-    </section>
-
-    <section class="footer">
-        <div class="github-links">
-          <div class="link-container">
-            <p>Agustin</p>
-            <a href=""><i class="fa-brands fa-github"></i></a>
-          </div>
-          <div class="link-container">
-            <p>Carlos</p>
-            <a href=""><i class="fa-brands fa-github"></i></a>
-          </div>
-          <div class="link-container">
-            <p>Cheryl</p>
-            <a href=""><i class="fa-brands fa-github"></i></a>
-          </div>
-          <div class="link-container">
-            <p>Claire</p>
-            <a href=""><i class="fa-brands fa-github"></i></a>
-          </div>
-          <div class="link-container">
-            <p>Daisy</p>
-            <a href=""><i class="fa-brands fa-github"></i></a>
-          </div>
-          <div class="link-container">
-            <p>Mark</p>
-            <a href=""><i class="fa-brands fa-github"></i></a>
-          </div>
-        </div>
-      </section>
-
-    <a href="game.html">test</a>
+    </footer>
     <script src="assets/js/main.js"></script>
-
-
 </body>
 
 </html>
