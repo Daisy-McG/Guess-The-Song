@@ -10,22 +10,29 @@
   </head>
   <body>
 
-    <form id="user-song">
-      <label for="user-answer">Enter Song</label>
-      <input type="text" name="user-answer" id="user-answer">
-      <input type="submit" value="Send Song">
-    </form>
-    <div class="iframe-container">
-      <iframe
-        id="spotify-player"
-        width="300"
-        height="300"
-        frameborder="0"
-        allowtransparency="true"
-        allow="encrypted-media"
-      >
-      </iframe>
-      <button class="fake-btn">Click</button>
+    <div class="radio-box">
+      <div class="radio-screen">
+        <h2>Guess the song</h2>
+        <form id="user-song">
+          <label for="user-answer">Enter Song</label>
+          <input type="text" name="user-answer" id="user-answer">
+          <input type="submit" value="Send Song">
+        </form>
+        <p>Placeholder for score</p>
+      </div>
+      <div class="iframe-container">
+        <iframe
+          id="spotify-player"
+          width="300"
+          height="300"
+          frameborder="0"
+          allowtransparency="true"
+          allow="encrypted-media"
+        >
+        </iframe>
+        <button class="play-button">Play</button>
+      </div>
+      <button class="next-button">Next</button>
     </div>
 
     <script src="assets/js/game.js"></script>
