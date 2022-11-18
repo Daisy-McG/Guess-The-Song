@@ -1,5 +1,6 @@
 let currentSong = {};
 let songs = [];
+let totalSongs = 0;
 let userName;
 
 /**
@@ -10,6 +11,7 @@ const loadGenreSongs = (genre) => {
         return song.genre === genre;
       });
     songs = results;
+    totalSongs = songs.length;
 }
 
 /**
@@ -19,6 +21,7 @@ async function loadAllSongs() {
     const res = await fetch("assets/js/songs.json");
     const data = await res.json();
     songs = data;
+    totalSongs = songs.length;
     getSong();
 }
 
@@ -47,7 +50,7 @@ userInfo.addEventListener("submit", e=>{
     userName = document.getElementById("user-name").value;
     //get category selection
     let selectedCategory = document.querySelector("#user-info input[type='radio']:checked").value;
-    console.log(selectedCategory)
+
     //clear username input value
     document.getElementById("user-name").value = "";
     //filter if a category is selected
@@ -58,6 +61,10 @@ userInfo.addEventListener("submit", e=>{
     document.querySelectorAll("[data-element]").forEach(el=>{
         el.getAttribute("data-element") === "game" ? el.classList.remove("hide") : el.classList.add("hide");
     });
+
+    // Update question counter
+    document.getElementById("q-counter").innerHTML = `Song ${totalSongs-songs.length+1} out of ${totalSongs}`
+
      // Add function here to start the game
 })
 
