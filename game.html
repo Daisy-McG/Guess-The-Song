@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
 
     <link rel="stylesheet" href="assets/css/game.css" />
     <!-- font awesome link -->
@@ -40,7 +42,8 @@
             <button class="play-button" aria-label="Play Song">
               <img
               src="assets/images/play.svg"
-              alt="Play Icon"/>
+              alt="Play Icon"
+              as="style" />
             </button>
           </div>
           <div data-element="game" class="hide life-container">
@@ -79,7 +82,10 @@
             </fieldset>
             <input type="submit" value="Start" />
           </form>
-          <p data-element="game" class="hide">Placeholder for score</p>
+          <div data-element="game" class="score-container hide">
+            <p>Score</p>
+            <p id="score">0</p>
+          </div>
         </div>
 
         <!-- Next button -->
