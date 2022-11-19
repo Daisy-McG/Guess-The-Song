@@ -3,6 +3,7 @@ let songs = [];
 let totalSongs = 0;
 let userName;
 let livesLeft = 3;
+let songNumber = 1;
 
 /**
  * Function to load genre specific songs
@@ -44,6 +45,15 @@ const getSong = () => {
  */
 const addSongToIframe = () => {
     document.getElementById("spotify-player").src = `https://open.spotify.com/embed/track/${currentSong.id}`;
+    noCheating();
+}
+
+/**
+ * Print noCheating to console
+ */
+
+const noCheating = () => {
+    console.log("%cNo Cheating!", "color: red; font-family: sans-serif; font-size: 4.5em; font-weight: bolder; text-shadow: #000 1px 1px;");
 }
 
 let userInfo = document.getElementById("user-info")
@@ -52,6 +62,8 @@ userInfo.addEventListener("submit", e=>{
     e.preventDefault();
     //get username
     userName = document.getElementById("user-name").value;
+    // remove white space before and after
+    userName = userName.replace(/^\s+|\s+$/gm,'');
     //get category selection
     let selectedCategory = document.querySelector("#user-info input[type='radio']:checked").value;
 
@@ -65,8 +77,9 @@ userInfo.addEventListener("submit", e=>{
     //filter if a category is selected
     loadGenreSongs(selectedCategory)
     // Update question counter
-    document.getElementById("q-counter").innerHTML = `Song ${totalSongs-songs.length+1} out of ${totalSongs}`
-    
+    document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
+
+     // Add function here to start the game
 })
 
 
@@ -224,7 +237,9 @@ songInput.addEventListener("submit", e=>{
 })
 
 /**
- * Function to compare user answer
+ * Function to compare user answer.
+ * Gets new song on correct guess.
+ * Decreases lives on incorrect guess.
  */
 function checkAnswer(answer){
     if(answer.toLowerCase() === currentSong.title.toLowerCase()){
@@ -248,8 +263,17 @@ function removeLife(){
         }
 }
 
+/**
+ * Function to increment score
+ * @param {int} score 
+ */
+const incrementScore = (score) => {
+	let currentScore = parseInt(document.getElementById("score").innerHTML);
+	currentScore += score;
+	document.getElementById("score").innerHTML = currentScore;
+}
 
-// Event Listener to get song on initial page load
+// Event Listener to get songs on initial page load
 window.addEventListener("load", () => {
     songs = loadAllSongs();
 });
