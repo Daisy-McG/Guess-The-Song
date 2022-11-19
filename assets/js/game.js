@@ -158,7 +158,10 @@ function displayCounter() {
             if (timeLeft === 0) {
                 onTimesUp();
             }
+
+            //check if a question was correctly answered
             if (questionCorrectlyAnswered === true) {
+                incrementScore(timeLeft)
                 clearInterval(timerInterval);
                 getSong();
                 questionCorrectlyAnswered = false
@@ -241,8 +244,6 @@ function checkAnswer(answer) {
     if (answer.toLowerCase() === currentSong.title.toLowerCase()) {
         questionCorrectlyAnswered = true;
         songNumber += 1;
-        // Needs to be updated with time left
-        incrementScore(50);
         // Update question counter
         document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
     } else {
@@ -262,7 +263,8 @@ function checkAnswer(answer) {
  */
 const incrementScore = (score) => {
     let currentScore = parseInt(document.getElementById("score").innerHTML);
-    currentScore += score;
+    //ads 50 points per question + one second per extra second
+    currentScore += (50 + score);
     document.getElementById("score").innerHTML = currentScore;
 }
 
