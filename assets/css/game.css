@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One&display=swapLato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --yellow: #f79808;
-    --blue: #2b78e4;
+    --background: #F79808;
+    --buttoncolor: #2B78E4;
+    --textcolor: #000;
+    --bordercolor: #000;
+    --iconcolor: #4D4D4D;
+    --white: #fff;
 }
 
 * {
@@ -10,6 +14,44 @@
     margin: 0;
     padding: 0;
 }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/hero-img.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 2500px;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+.hide {
+    display: none !important;
+}
+
+header {
+    width: 100%;
+    background-color: var(--background);
+    color: var(--textcolor);
+    text-align: center;
+    box-sizing: border-box;
+}
+
 
 /* Code to hide spotify box */
 
@@ -20,7 +62,7 @@
     overflow: hidden;
 }
 
-.iframe-container iframe{
+.iframe-container iframe {
     position: absolute;
     z-index: 1;
     bottom: -67px;
@@ -28,7 +70,7 @@
     opacity: 0;
 }
 
-.iframe-container .play-button{
+.iframe-container .play-button {
     position: absolute;
     z-index: 2;
     top: 5px;
@@ -59,11 +101,15 @@
 /* radio game screen */
 .radio-box {
     width: 800px;
-    height: 400px;
-    background-color: black;
-    border: 30px solid var(--yellow);
-    border-radius: 30px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 4px 21px -12px rgb(0 0 0 / 66%);
+    border: 2px solid var(--background);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .next-button {
@@ -78,17 +124,17 @@
 }
 
 .radio-screen {
-    width: 700px;
+    width: 90%;
     height: 250px;
-    background-color: var(--yellow);
-    border-radius: 30px;
-    position: absolute;
+    border-radius: 5px;
     left: 50px;
     top: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 1rem;
+    margin: 20px;
 }
 
 #timerscore {
@@ -99,4 +145,16 @@
 
 .timerscore {
     border: 1px solid #888;
+}
+
+#user-info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#user-info fieldset {
+    padding: 1rem;
+    margin: 1rem 0;
 }
