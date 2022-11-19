@@ -35,6 +35,8 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ## Credits
 
+Image of rock band on main game screen taken from - [PixaBay](https://pixabay.com/photos/guitar-guitarist-music-756326/)
+
 * [Favicon from this Font Awesome project](https://gauger.io/fonticon/)
 * [Google Fonts](https://fonts.google.com/)
 * Agustin

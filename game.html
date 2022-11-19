@@ -7,50 +7,78 @@
 
     <link rel="stylesheet" href="assets/css/game.css" />
     <!-- font awesome link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
     <title>Document</title>
   </head>
   <body>
+    <header>
+      <div id="title">
+          <h1>Guess The Song</h1>
+      </div>
+    </header>
 
-    <div class="radio-box">
-      <div class="radio-screen">
-        <h2>Guess the song</h2>
-        <form id="user-song" data-element="game" class="hide">
-          <label for="user-answer">Enter Song</label>
-          <input type="text" name="user-answer" id="user-answer">
-          <input type="submit" value="Send Song">
-        </form>
-        <form id="user-info" data-element="user-info">
-          <label for="user-name">Enter your name</label>
-          <input type="text" name="user-name" id="user-name" required>
-          <input type="radio" id="all" name="genre" value="all" checked>
-          <label for="all">All genres</label>
-          <input type="radio" id="rock" name="genre" value="rock">
-          <label for="rock">Rock</label>
-          <input type="radio" id="pop" name="genre" value="pop">
-          <label for="pop">Pop</label>
-          <input type="radio" id="country" name="genre" value="country">
-          <label for="country">Country</label>
-          <input type="submit" value="Start">
-        </form>
-        <p data-element="game" class="hide">Placeholder for score</p>
+    <main>
+      <div class="radio-box">
+        <div class="radio-screen">
+          <div></div>
+          <!-- Spotify iframe -->
+          <div class="iframe-container hide" data-element="game">
+            <iframe
+              id="spotify-player"
+              width="300"
+              height="300"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            >
+            </iframe>
+            <!-- Play button -->
+            <button class="play-button" aria-label="Play Song">
+              <img
+              src="assets/images/play.svg"
+              alt="Play Icon"/>
+            </button>
+          </div>
+          <div id="q-counter"></div>
+          <!-- Song guess input -->
+          <form id="user-song" data-element="game" class="hide">
+            <input type="text" name="user-answer" id="user-answer" placeholder="Enter guess" aria-label="answer" />
+            <input type="submit" value="Answer" />
+          </form>
+
+          <!-- Game configuration and username input -->
+          <form id="user-info" data-element="user-info">
+            <label for="user-name">Enter your name</label>
+            <input type="text" name="user-name" id="user-name" required />
+
+            <fieldset>
+              <legend>Select Genre</legend>
+              <input type="radio" id="all" name="genre" value="all" checked />
+              <label for="all">All genres</label>
+              <input type="radio" id="rock" name="genre" value="Rock" />
+              <label for="rock">Rock</label>
+              <input type="radio" id="pop" name="genre" value="Pop" />
+              <label for="pop">Pop</label>
+              <input type="radio" id="country" name="genre" value="Country" />
+              <label for="country">Country</label>
+            </fieldset>
+            <input type="submit" value="Start" />
+          </form>
+          <p data-element="game" class="hide">Placeholder for score</p>
+        </div>
+
+        <!-- Next button -->
+        <!-- <div class="game-btns">
+          <button class="next-button hide" data-element="game">Next</button>
+        </div> -->
       </div>
-      <div class="iframe-container hide" data-element="game">
-        <iframe
-          id="spotify-player"
-          width="300"
-          height="300"
-          frameborder="0"
-          allowtransparency="true"
-          allow="encrypted-media"
-        >
-        </iframe>
-        <button class="play-button">Play</button>
-      </div>
-      <button class="next-button hide" data-element="game">Next</button>
-    </div>
-    
+    </main>
+
+    <!-- Import js file -->
     <script src="assets/js/game.js"></script>
   </body>
 </html>
