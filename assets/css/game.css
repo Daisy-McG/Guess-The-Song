@@ -169,3 +169,12 @@ header {
     height: 25px;
     margin: 1.5rem 0.5rem 0 0.5rem;
 }
+
+/* Scoring */
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

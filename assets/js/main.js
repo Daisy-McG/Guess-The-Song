@@ -43,19 +43,3 @@ startButton.addEventListener('click', function(){
 		}
 	}, 1000);
 });
-
-// Increment score
-
-function incrementScore() {
-	let currentScore = parseInt(document.getElementById("score").innerHTML);
-	currentScore += 1;
-	document.getElementById("score").innerHTML = currentScore;
-}
-
-// Attach event listener to guess button
-
-let guessButton = document.getElementById("submitguess");
-guessButton.addEventListener('click', function(){
-	// check the answer here
-	incrementScore();
-});

@@ -87,18 +87,20 @@ songInput.addEventListener("submit", e=>{
 })
 
 /**
- * Function to compare user answer
+ * Function to compare user answer.
+ * Gets new song on correct guess.
+ * Decreases lives on incorrect guess.
  */
 function checkAnswer(answer){
     if(answer.toLowerCase() === currentSong.title.toLowerCase()){
         songNumber += 1;
+        // Needs to be updated with time left
+        incrementScore(50);
         // Update question counter
         document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
         getSong();
     } else{
         livesLeft -= 1;
-
-        // Change life image colour when answer is wrong
         let lives = document.getElementsByClassName("life");
         if (livesLeft === 2) {
             lives[2].src = `assets/images/skull-red.svg`;
@@ -109,7 +111,17 @@ function checkAnswer(answer){
     }
 }
 
-// Event Listener to get song on initial page load
+/**
+ * Function to increment score
+ * @param {int} score 
+ */
+const incrementScore = (score) => {
+	let currentScore = parseInt(document.getElementById("score").innerHTML);
+	currentScore += score;
+	document.getElementById("score").innerHTML = currentScore;
+}
+
+// Event Listener to get songs on initial page load
 window.addEventListener("load", () => {
     songs = loadAllSongs();
 });
