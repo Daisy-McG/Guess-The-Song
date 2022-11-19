@@ -257,6 +257,7 @@ function checkAnswer(answer) {
         updateQuestionCounter();
     } else {
        removeLife();
+       getSong();
     }
 }
 
