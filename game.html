@@ -1,102 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Favicon -->
-    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
 
-    <link rel="stylesheet" href="assets/css/game.css" />
-    <!-- font awesome link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Favicon -->
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
 
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <div id="title">
-          <h1>Guess The Song</h1>
+  <link rel="stylesheet" href="assets/css/game.css" />
+  <!-- font awesome link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <div id="title">
+      <div class="home">
+        <a href="index.html" aria-label="Back to home page">
+          <img src="assets/images/home.svg" alt="Home Icon" class="life" />
+        </a>
       </div>
-    </header>
+      <h1>Guess The Song</h1>
+      <div></div>
+    </div>
+  </header>
 
-    <main id="game-background">
-      <div class="radio-box">
-        <div class="radio-screen">
-          <div id="watch"></div>
-          <div></div>
-          <!-- Spotify iframe -->
-          <div class="iframe-container hide" data-element="game">
-            <iframe
-              id="spotify-player"
-              width="300"
-              height="300"
-              frameborder="0"
-              allowtransparency="true"
-              allow="encrypted-media"
-            >
-            </iframe>
-            <!-- Play button -->
-            <button class="play-button" aria-label="Play Song">
-              <img
-              src="assets/images/play.svg"
-              alt="Play Icon"
-              as="style" />
-            </button>
-          </div>
-          <div data-element="game" class="hide life-container">
-            <img
-              src="assets/images/skull-black.svg"
-              alt="Skull Icon - Life 1" class="life" />
-              <img
-              src="assets/images/skull-black.svg"
-              alt="Skull Icon - Life 2" class="life" />
-              <img
-              src="assets/images/skull-black.svg"
-              alt="Skull Icon - Life 3" class="life" />
-          </div>
-          <div id="q-counter"></div>
-          <!-- Song guess input -->
-          <form id="user-song" data-element="game" class="hide">
-            <input type="text" name="user-answer" id="user-answer" placeholder="Enter guess" aria-label="answer" />
-            <input type="submit" value="Answer" />
-          </form>
-
-          <!-- Game configuration and username input -->
-          <form id="user-info" data-element="user-info">
-            <label for="user-name">Enter your name</label>
-            <input type="text" name="user-name" id="user-name" required />
-
-            <fieldset>
-              <legend>Select Genre</legend>
-              <input type="radio" id="all" name="genre" value="all" checked />
-              <label for="all">All genres</label>
-              <input type="radio" id="rock" name="genre" value="Rock" />
-              <label for="rock">Rock</label>
-              <input type="radio" id="pop" name="genre" value="Pop" />
-              <label for="pop">Pop</label>
-              <input type="radio" id="country" name="genre" value="Country" />
-              <label for="country">Country</label>
-            </fieldset>
-            <input type="submit" value="Start" />
-          </form>
-          <div data-element="game" class="score-container hide">
-            <p>Score</p>
-            <p id="score">0</p>
-          </div>
+  <main id="game-background">
+    <div class="radio-box">
+      <div class="radio-screen">
+        <div id="watch"></div>
+        <div></div>
+        <!-- Spotify iframe -->
+        <div class="iframe-container hide" data-element="game">
+          <iframe id="spotify-player" width="300" height="300" frameborder="0" allowtransparency="true"
+            allow="encrypted-media">
+          </iframe>
+          <!-- Play button -->
+          <button class="play-button" id="play-button" aria-label="Play Song">
+            <img src="assets/images/play.svg" alt="Play Icon" as="style" />
+          </button>
         </div>
+        <div data-element="game" class="hide life-container">
+          <img src="assets/images/skull-black.svg" alt="Skull Icon - Life 1" class="life" />
+          <img src="assets/images/skull-black.svg" alt="Skull Icon - Life 2" class="life" />
+          <img src="assets/images/skull-black.svg" alt="Skull Icon - Life 3" class="life" />
+        </div>
+        <div id="q-counter"></div>
+        <!-- Song guess input -->
+        <form id="user-song" data-element="game" class="hide">
+          <input type="text" name="user-answer" id="user-answer" placeholder="Enter guess" aria-label="answer" />
+          <input type="submit" value="Answer" />
+        </form>
 
-        <!-- Next button -->
-        <!-- <div class="game-btns">
-          <button class="next-button hide" data-element="game">Next</button>
-        </div> -->
+        <!-- Game configuration and username input -->
+        <form id="user-info" data-element="user-info">
+          <label for="user-name">Enter your name</label>
+          <input type="text" name="user-name" id="user-name" required />
+
+          <fieldset>
+            <legend>Select Genre</legend>
+            <input type="radio" id="all" name="genre" value="all" checked />
+            <label for="all">All genres</label>
+            <input type="radio" id="rock" name="genre" value="Rock" />
+            <label for="rock">Rock</label>
+            <input type="radio" id="pop" name="genre" value="Pop" />
+            <label for="pop">Pop</label>
+            <input type="radio" id="country" name="genre" value="Country" />
+            <label for="country">Country</label>
+          </fieldset>
+          <input type="submit" value="Start" />
+        </form>
+        <div data-element="game" class="score-container hide">
+          <p>Score</p>
+          <p id="score">0</p>
+        </div>
       </div>
-    </main>
 
-    <!-- Import js file -->
-    <script src="assets/js/game.js"></script>
-  </body>
+    </div>
+  </main>
+
+  <!-- Import js file -->
+  <script src="assets/js/game.js"></script>
+</body>
+
 </html>
