@@ -4,11 +4,22 @@ let totalSongs = 0;
 let userName;
 let livesLeft = 3;
 let songNumber = 1;
+let genre = "";
 
 /**
  * Function to load genre specific songs
  */
 const loadGenreSongs = (genre) => {
+    let main = document.getElementsByTagName("main");
+    if (genre === "Rock") {
+        
+    }
+    else if (genre === "Pop") {
+
+    }
+    else if (genre === "Country") {
+
+    }
     if (genre !== "all") {
         let results = songs.filter(song => {
             return song.genre === genre;
