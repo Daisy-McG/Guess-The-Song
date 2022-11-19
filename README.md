@@ -37,6 +37,8 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 Image of rock band on main game screen taken from - [PixaBay](https://pixabay.com/photos/guitar-guitarist-music-756326/)
 
+No Cheating - Console log styling taken from [Stack Overflow](https://stackoverflow.com/questions/26283936/stylized-console-logging) post, inspired by facebook
+
 * [Favicon from this Font Awesome project](https://gauger.io/fonticon/)
 * [Google Fonts](https://fonts.google.com/)
 * Agustin
