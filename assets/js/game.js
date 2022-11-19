@@ -49,6 +49,8 @@ userInfo.addEventListener("submit", e=>{
     e.preventDefault();
     //get username
     userName = document.getElementById("user-name").value;
+    // remove white space before and after
+    userName = userName.replace(/^\s+|\s+$/gm,'');
     //get category selection
     let selectedCategory = document.querySelector("#user-info input[type='radio']:checked").value;
 
@@ -102,7 +104,6 @@ function checkAnswer(answer){
         }
     }
 }
-
 
 // Event Listener to get song on initial page load
 window.addEventListener("load", () => {
