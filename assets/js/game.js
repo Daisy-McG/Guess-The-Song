@@ -160,6 +160,7 @@ function displayCounter() {
             }
             if (questionCorrectlyAnswered === true) {
                 clearInterval(timerInterval);
+                getSong();
                 questionCorrectlyAnswered = false
             }
         }, 1000);
@@ -244,7 +245,6 @@ function checkAnswer(answer) {
         incrementScore(50);
         // Update question counter
         document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
-        getSong();
     } else {
         livesLeft -= 1;
         let lives = document.getElementsByClassName("life");
