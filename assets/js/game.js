@@ -42,6 +42,15 @@ const getSong = () => {
  */
 const addSongToIframe = () => {
     document.getElementById("spotify-player").src = `https://open.spotify.com/embed/track/${currentSong.id}`;
+    noCheating();
+}
+
+/**
+ * Print noCheating to console
+ */
+
+const noCheating = () => {
+    console.log("%cNo Cheating!", "color: red; font-family: sans-serif; font-size: 4.5em; font-weight: bolder; text-shadow: #000 1px 1px;");
 }
 
 let userInfo = document.getElementById("user-info")
