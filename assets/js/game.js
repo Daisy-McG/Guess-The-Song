@@ -10,15 +10,15 @@ let genre = "";
  * Function to load genre specific songs
  */
 const loadGenreSongs = (genre) => {
-    let main = document.getElementsByTagName("main");
+    let main = document.getElementById("game-background");
     if (genre === "Rock") {
-        
+        main.style.backgroundImage = "url('/assets/images/drummer.jpg')"
     }
     else if (genre === "Pop") {
-
+        main.style.backgroundImage = "url('/assets/images/disco-ball.jpg')"
     }
     else if (genre === "Country") {
-
+        main.style.backgroundImage = "url('/assets/images/guitar.jpg')"
     }
     if (genre !== "all") {
         let results = songs.filter(song => {
