@@ -1,5 +1,7 @@
 let currentSong = {};
 let songs = [];
+let totalSongs = 0;
+let userName;
 
 /**
  * Function to load genre specific songs
@@ -9,6 +11,7 @@ const loadGenreSongs = (genre) => {
         return song.genre === genre;
       });
     songs = results;
+    totalSongs = songs.length;
 }
 
 /**
@@ -18,6 +21,7 @@ async function loadAllSongs() {
     const res = await fetch("assets/js/songs.json");
     const data = await res.json();
     songs = data;
+    totalSongs = songs.length;
     getSong();
 }
 
@@ -37,6 +41,33 @@ const getSong = () => {
 const addSongToIframe = () => {
     document.getElementById("spotify-player").src = `https://open.spotify.com/embed/track/${currentSong.id}`;
 }
+
+let userInfo = document.getElementById("user-info")
+// Event Listener to Get user info
+userInfo.addEventListener("submit", e=>{
+    e.preventDefault();
+    //get username
+    userName = document.getElementById("user-name").value;
+    //get category selection
+    let selectedCategory = document.querySelector("#user-info input[type='radio']:checked").value;
+
+    //clear username input value
+    document.getElementById("user-name").value = "";
+    //filter if a category is selected
+    if(selectedCategory !== "all"){
+        loadGenreSongs(selectedCategory)
+    }
+    //hide and show correct elements from radio box
+    document.querySelectorAll("[data-element]").forEach(el=>{
+        el.getAttribute("data-element") === "game" ? el.classList.remove("hide") : el.classList.add("hide");
+    });
+
+    // Update question counter
+    document.getElementById("q-counter").innerHTML = `Song ${totalSongs-songs.length+1} out of ${totalSongs}`
+
+     // Add function here to start the game
+})
+
 
 
 let songInput = document.getElementById("user-song")
