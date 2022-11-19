@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One&display=swapLato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One&display=swapLato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One=Lato+Inline&family=Raleway+Inline&family&display=swap');
 
 :root {
     /* --background: #f79808; */
@@ -21,20 +23,24 @@ body {
 
 body {
     font-family: 'Raleway', sans-serif;
+    /* font-family: 'Pirata One', cursive; */
+    /* font-family: 'Fascinate Inline', cursive; */
+    /* font-family: 'Bungee Shade', cursive; */
     display: flex;
     flex-direction: column;
 }
 
 main {
     flex: 1 0 auto;
-    background-color: var(--background);
+    background-color: var(--iconcolor);
     /* background-image: url("https://tobyjepsonofficial.com/wp-content/uploads/2021/01/R-1710390-1283696130.jpeg-1280x720-1.jpg"); */
-    background-image: url("../images/pl.jpg");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center center fixed;
-    
+    /* background-image: url("../images/pl.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; */
+    /* background-position: center center fixed;    */
+    /* max-height: 100vh; */
 }
+
 
 /* header */
 header {
@@ -45,27 +51,37 @@ header {
     box-sizing: border-box;
 }
 
+header h1 {
+    font-size: 2rem;
+}
+
 /* center section */
 #center {
     font-family: 'Lato', sans-serif;
     color: var(--textcolor);
     padding: 0.5rem;
-    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
 }
 
 /* welcome box */
 #welcome {
-    width: 80%;
-    margin: auto;
     padding: 1rem;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     background-color: var(--background);
     text-align: center;
 }
 
-#center:hover {
-    visibility: hidden;
+#welcome ul {
+    list-style-type: none;
+}
+
+#welcome ul>li {
+    padding: 0.1rem;
 }
 
 .codeinst {
@@ -83,13 +99,11 @@ header {
 
 .github {
     padding-top: 0.5rem;
-    font-size: small;
+    font-size: 0.8rem;
 }
 
 /* instructions panel */
 #instructions {
-    width: 80%;
-    margin: 0.5rem auto;
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -109,23 +123,25 @@ header {
 ol>li {
     font-size: 0.8rem;
     padding-bottom: 0.2rem;
-    text-align: center;
 }
 
 .startbutton-div {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 /* start game */
 #startbutton {
-    width: 80%;
     height: 50px;
-    background-color: var(--buttoncolor);
+    background-color: var(--background);
+    /* border: 2px solid var(--textcolor); */
+    color: var(--textcolor);
+    padding: 0 1rem;
 }
 
 /* Footer */
 footer {
+    font-family: 'Lato', sans-serif;
     width: 100vw;
     position: fixed;
     left: 0;
@@ -170,3 +186,81 @@ footer {
     color: var(--textcolor);
     font-size: 1.5rem;
 }
+
+/* media queries 
+up to 420
+421/548
+549/772
+773/992 and upwards*/
+@media(min-width: 421px) {
+    header {
+        /* font-size: 2rem; */
+        font-size: 1.5rem;
+    }
+
+    #welcome {
+        /* font-size: 1rem; */
+        font-size: 1.5rem;
+    }
+
+    #welcome ul>li {
+        /* padding: 0.1rem; */
+    }
+
+    .github {
+        /* font-size: 0.8rem; */
+    }
+
+    #instructions {
+        /* font-size: 1rem; */
+        font-size: 1.5rem;
+    }
+
+    #instructions h2 {
+        /* font-size: 1.5rem; */
+        font-size: 1.5rem;
+    }
+
+    #instructions ol>li {
+        font-size: 1rem;
+        padding-bottom: 0.4rem;
+    }
+}
+
+/* @media(min-width: 548px) {
+    header {
+        font-size: 2rem;
+    }
+
+    #instructions {
+        font-size: 2rem;
+    }
+
+    #welcome {
+        font-size: 2rem;
+    }
+
+    ol>li {
+        font-size: 1.5rem;
+        padding-bottom: 0.4rem;
+    }
+}
+
+@media(min-width: 772px) {
+    header {
+        font-size: 2.5rem;
+    }
+
+    #instructions {
+        font-size: 2.5rem;
+    }
+
+    #welcome {
+        font-size: 2.5rem;
+    }
+
+    ol>li {
+        font-size: 2rem;
+        padding-bottom: 0.6rem;
+    }
+} */
