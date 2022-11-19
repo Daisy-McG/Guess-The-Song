@@ -3,6 +3,7 @@ let songs = [];
 let totalSongs = 0;
 let userName;
 let livesLeft = 3;
+let songNumber = 1;
 
 /**
  * Function to load genre specific songs
@@ -66,7 +67,7 @@ userInfo.addEventListener("submit", e=>{
     });
 
     // Update question counter
-    document.getElementById("q-counter").innerHTML = `Song ${totalSongs-songs.length+1} out of ${totalSongs}`
+    document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
 
      // Add function here to start the game
 })
@@ -90,7 +91,10 @@ songInput.addEventListener("submit", e=>{
  */
 function checkAnswer(answer){
     if(answer.toLowerCase() === currentSong.title.toLowerCase()){
-        console.log("correct answer")
+        songNumber += 1;
+        // Update question counter
+        document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
+        getSong();
     } else{
         livesLeft -= 1;
 
