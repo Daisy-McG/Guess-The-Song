@@ -172,14 +172,17 @@ header {
 
 /* counter */
 #watch{
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
 }
 
 .base-timer {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
   }
   
   .base-timer__svg {
@@ -220,13 +223,13 @@ header {
   
   .base-timer__label {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
+    font-size: 20px;
   }
 /* Scoring */
 

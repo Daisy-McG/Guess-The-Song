@@ -153,7 +153,7 @@ function displayCounter() {
     function onTimesUp() {
         clearInterval(timerInterval);
         removeLife();
-        getSong()
+        getSong();
     }
 
     function startTimer() {
@@ -251,20 +251,35 @@ songInput.addEventListener("submit", e => {
 function checkAnswer(answer) {
     if (answer.toLowerCase() === currentSong.title.toLowerCase()) {
         questionCorrectlyAnswered = true;
-        songNumber += 1;
+        songNumber++;
         // Needs to be updated with time left
         incrementScore(50);
-        // Update question counter
-        document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
+        updateQuestionCounter();
     } else {
-        livesLeft -= 1;
-        let lives = document.getElementsByClassName("life");
-        if (livesLeft === 2) {
-            lives[2].src = `assets/images/skull-red.svg`;
-        } else if (livesLeft == 1) {
-            lives[1].src = `assets/images/skull-red.svg`;
-        }
+       removeLife();
     }
+}
+
+/**
+ * Function to update question counter 
+ */
+const updateQuestionCounter = () => {
+    document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
+}
+
+/**
+ * Function to removeLife
+ */
+const removeLife = () => {
+    livesLeft -= 1;
+    let lives = document.getElementsByClassName("life");
+    if (livesLeft === 2) {
+        lives[2].src = `assets/images/skull-red.svg`;
+    } else if (livesLeft == 1) {
+        lives[1].src = `assets/images/skull-red.svg`;
+    }
+    songNumber++;
+    updateQuestionCounter();
 }
 
 /**
