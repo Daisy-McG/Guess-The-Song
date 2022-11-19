@@ -2,6 +2,7 @@ let currentSong = {};
 let songs = [];
 let totalSongs = 0;
 let userName;
+let livesLeft = 3;
 
 /**
  * Function to load genre specific songs
@@ -89,7 +90,16 @@ function checkAnswer(answer){
     if(answer.toLowerCase() === currentSong.title.toLowerCase()){
         console.log("correct answer")
     } else{
-        console.log("incorrect Answer")
+        livesLeft -= 1;
+
+        // Change life image colour when answer is wrong
+        let lives = document.getElementsByClassName("life");
+        if (livesLeft === 2) {
+            lives[2].src = `assets/images/skull-red.svg`;
+        }
+        else if (livesLeft == 1){
+            lives[1].src = `assets/images/skull-red.svg`;
+        }
     }
 }
 
