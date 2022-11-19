@@ -30,7 +30,7 @@
    "[json]": {
       "editor.defaultFormatter": "vscode.json-language-features"
    },
-   "[javascript]": {
-      "editor.defaultFormatter": "numso.prettier-standard-vscode"
+   "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
    }
 }
