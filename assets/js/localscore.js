@@ -1,3 +1,5 @@
+let score = Math.floor(Math.random() * 100);
+
 let usernameButton = document.getElementById("submit_user");
 usernameButton.addEventListener('click', function(){
 	console.log('button pressed');
@@ -13,5 +15,11 @@ function validateUsername() {
         console.log('username blank');
 	} else {
         console.log(username)
+        setScore();
+        console.log(localStorage.length)
     }
+}
+
+function setScore() {
+    localStorage.setItem(username, score);
 }
