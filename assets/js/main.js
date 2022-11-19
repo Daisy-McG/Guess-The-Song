@@ -43,37 +43,3 @@ startButton.addEventListener('click', function(){
 		}
 	}, 1000);
 });
-
-// Increment score
-
-function incrementScore() {
-	let currentScore = parseInt(document.getElementById("score").innerHTML);
-	currentScore += 1;
-	document.getElementById("score").innerHTML = currentScore;
-}
-
-// Attach event listener to guess button
-
-let guessButton = document.getElementById("submitguess");
-guessButton.addEventListener('click', function(){
-	// check the answer here
-	incrementScore();
-});
-
-// Validate username
-
-function validateUsername() {
-	let username = document.getElementById("username").value;
-	username = username.trim();
-	if (!username) {
-		alert('Username cannot be blank');
-		// I'll turn this into a prettier modal when it's not 2am
-	}
-}
-
-// Add event listener to username button
-
-let usernameButton = document.getElementById("submit_user");
-usernameButton.addEventListener('click', function(){
-	validateUsername();
-});
