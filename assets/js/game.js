@@ -94,7 +94,7 @@ function displayCounter(){
     };
     
     let timePassed = 0;
-    const TIME_LIMIT = 60;
+    const TIME_LIMIT = 10;
     let timeLeft = TIME_LIMIT;
     let timerInterval = null;
     let remainingPathColor = COLOR_CODES.info.color;
@@ -124,24 +124,12 @@ function displayCounter(){
     `;
     
     startTimer();
-    checkCorrectAnswer();
 
     //When timer reaches 0
     function onTimesUp() {
       clearInterval(timerInterval);
       removeLife();
       getSong()
-    }
-    
-    function checkCorrectAnswer(){
-        setInterval(()=>{
-            if(questionCorrectlyAnswered === true){
-                clearInterval(timerInterval);
-                timePassed = 0;
-                timeLeft = 60;
-                questionCorrectlyAnswered = false
-            }
-        },500)
     }
     
     function startTimer() {
@@ -157,6 +145,11 @@ function displayCounter(){
     
         if (timeLeft === 0) {
           onTimesUp();
+        }
+        if(questionCorrectlyAnswered === true){
+            clearInterval(timerInterval);
+            getSong()
+            questionCorrectlyAnswered = false
         }
       }, 1000);
     }
@@ -229,8 +222,6 @@ songInput.addEventListener("submit", e=>{
 function checkAnswer(answer){
     if(answer.toLowerCase() === currentSong.title.toLowerCase()){
         questionCorrectlyAnswered = true;
-        console.log(questionCorrectlyAnswered)
-        getSong()
     } else{
         removeLife()
     }
