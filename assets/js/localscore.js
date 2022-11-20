@@ -6,7 +6,7 @@ let usernameButton = document.getElementById("submit_user");
 
 usernameButton.addEventListener('click', function(){
     console.log('button pressed');
-    score = String(Math.floor(Math.random() * 100));
+    score = String(Math.floor(Math.random() * 1000));
     username = `test${score}`;
     setScore();
 });
@@ -38,5 +38,7 @@ function checkHighscore() {
         localStorage.name = username;
         localStorage.score = score;
         document.getElementById("display_message").innerHTML = "Congratulations on a new high score";
+    } else {
+        document.getElementById("display_message").innerHTML = "";
     }
 }
