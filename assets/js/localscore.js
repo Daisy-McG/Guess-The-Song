@@ -28,3 +28,7 @@ function getScore() {
     let topScore = localStorage.score;
     document.getElementById("high_score").innerHTML = `The current high score is ${topUsername}: ${topScore}`;
 }
+
+function checkHighscore() {
+    
+}
