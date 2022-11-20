@@ -38,6 +38,10 @@ header {
     align-items: center;
 }
 
+#title img{
+    padding-left: 1rem;
+}
+
 .life {
     height: 25px;
 }
