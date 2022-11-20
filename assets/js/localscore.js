@@ -13,7 +13,7 @@ usernameButton.addEventListener('click', function(){
 function setScore() {
     document.getElementById("new_score").innerHTML = `Well done ${username} you scored ${score}`;
     localStorage.name = username;
-    localStorage.score = score; // move this to high score function
+    localStorage.score = score
     getScore();
 }
 
