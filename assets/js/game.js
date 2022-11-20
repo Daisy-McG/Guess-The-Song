@@ -243,6 +243,8 @@ let bonusCount = 30;
  */
 
 function bonusQuestion(){
+    let artist = currentSong.artist;
+    let title = currentSong.title;
     let releaseYear = Number(currentSong.release_year);
     let possible_dates = [releaseYear];
     while(possible_dates.length < 4){
@@ -260,7 +262,7 @@ function bonusQuestion(){
     <div id="overlay">
         <div class="modal">
         <h2>Bonus Question</h2>
-        <h3>When was <span>xxxx</span> released?</h3>
+        <h3>When did ${artist} released ${title}?</h3>
         <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
         <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
         <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
