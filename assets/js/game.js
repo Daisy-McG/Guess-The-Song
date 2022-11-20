@@ -465,10 +465,12 @@ const incrementScore = (score) => {
     //ads 50 points per question + one second per extra second
     currentScore += (50 + score);
     document.getElementById("score").innerHTML = currentScore;
-    localStorage.score=currentScore;
+    localStorage.score = currentScore;
 }
 
 // Event Listener to get songs on initial page load
 window.addEventListener("load", () => {
     songs = loadAllSongs();
+    // initialise score to 0
+    localStorage.score = 0;
 });
