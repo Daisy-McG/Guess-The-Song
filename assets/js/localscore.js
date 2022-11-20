@@ -1,7 +1,6 @@
 let score = localStorage.score;
 let username = localStorage.name;
 
-
 /* Function to be run on page load
 *  Displays final score
 *  Runs the rest of the score checking and updates
