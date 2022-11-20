@@ -365,11 +365,11 @@ function checkAnswer(answer) {
         incrementScore(timeLeft)
         clearInterval(timerInterval);
         timePassed = 0;
-        updateQuestionCounter()
         bonusQuestion();
+        songNumber++;
+        updateQuestionCounter()
     } else {
         wrongInputOrTimesUp()
-        
     }
 }
 
