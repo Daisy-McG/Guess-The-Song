@@ -78,6 +78,8 @@ userInfo.addEventListener("submit", e => {
     userName = document.getElementById("user-name").value;
     // remove white space before and after
     userName = userName.replace(/^\s+|\s+$/gm, '');
+    // send username to storage
+    localStorage.name = userName;
     //get category selection
     let selectedCategory = document.querySelector("#user-info input[type='radio']:checked").value;
 
