@@ -1,14 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One&display=swapLato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight&family=New+Rocker&family=Raleway&display=swap');
 
 :root {
-    --yellow: #f79808;
-    --blue: #2b78e4;
+    /* --background: #f79808; */
+    --background: #0f7988;
+    --buttoncolor: #2b78e4;
+    --textcolor: #eeffdd;
+    --bordercolor: #000;
+    --iconcolor: #4D4D4D;
 }
 
 * {
-    font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+    background-color: var(--iconcolor);
+    background-image: url("../images/guitar.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    width: 100%;
+    background-color: var(--background);
+    color: var(--textcolor);
+    text-align: center;
+    box-sizing: border-box;
+    padding: 1rem 0;
+}
+
+h1 {
+    font-size: 3rem;
+    font-family: 'New Rocker', sans-serif;
+    letter-spacing: 5px;
+    color: var(--bordercolor);
+}
+
+.scoreboard {
+    width: 80%;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 4px 21px -12px rgb(0 0 0 / 66%);
+    border: 2px solid var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hide {
