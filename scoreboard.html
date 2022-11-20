@@ -4,21 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/scoreboard.css">
     <title>Document</title>
 </head>
 <body>
     <header>
-        <h1>Scoreboard</h1>
-    </header>
+        <div id="title">
+          <div class="home">
+            <a href="index.html" aria-label="Back to home page">
+              <img src="assets/images/home.svg" alt="Home Icon" class="life" />
+            </a>
+          </div>
+          <h1>Guess The Song</h1>
+          <div></div>
+        </div>
+      </header>
     
-    <section>
-        <!-- Return Scoreboard Here -->
-    </section>
-
+    <main>
+        <h2 class="scoreboard">Final Score</h2>
+        <section class="scoreboard">
+            <ul>
+                <li>
+                    <i class="fa-solid fa-music"></i>
+                    <p id="new_score"> Loading your score...</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-music"></i>
+                    <p id="high_score">Loading previous high score...</p>
+                </li>
+            <div class="content" id="display_message">Checking for new high score...</div>
+        </section>
+    </main>
+    
     <footer>
-
     </footer>
     
-    <script src="assets/js/sheetsapi.js"></script>
+    <script src="assets/js/localscore.js"></script>
   </body>
 </html>

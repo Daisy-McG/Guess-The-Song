@@ -4,11 +4,22 @@ let totalSongs = 0;
 let userName;
 let livesLeft = 3;
 let songNumber = 1;
+let genre = "";
 
 /**
  * Function to load genre specific songs
  */
 const loadGenreSongs = (genre) => {
+    let main = document.getElementById("game-background");
+    if (genre === "Rock") {
+        main.style.backgroundImage = "url('assets/images/drummer.jpg')";
+    }
+    else if (genre === "Pop") {
+        main.style.backgroundImage = "url('assets/images/disco-ball.jpg')";
+    }
+    else if (genre === "Country") {
+        main.style.backgroundImage = "url('assets/images/guitar.jpg')";
+    }
     if (genre !== "all") {
         let results = songs.filter(song => {
             return song.genre === genre;
@@ -64,6 +75,8 @@ userInfo.addEventListener("submit", e => {
     userName = document.getElementById("user-name").value;
     // remove white space before and after
     userName = userName.replace(/^\s+|\s+$/gm, '');
+    // set current player to verified username
+    localStorage.name = userName;
     //get category selection
     let selectedCategory = document.querySelector("#user-info input[type='radio']:checked").value;
 
@@ -142,7 +155,7 @@ function displayCounter() {
     function onTimesUp() {
         clearInterval(timerInterval);
         removeLife();
-        getSong()
+        getSong();
     }
 
     function startTimer() {
@@ -243,18 +256,36 @@ songInput.addEventListener("submit", e => {
 function checkAnswer(answer) {
     if (answer.toLowerCase() === currentSong.title.toLowerCase()) {
         questionCorrectlyAnswered = true;
-        songNumber += 1;
-        // Update question counter
-        document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
+        songNumber++;
+        // Needs to be updated with time left
+        incrementScore(50);
+        updateQuestionCounter();
     } else {
-        livesLeft -= 1;
-        let lives = document.getElementsByClassName("life");
-        if (livesLeft === 2) {
-            lives[2].src = `assets/images/skull-red.svg`;
-        } else if (livesLeft == 1) {
-            lives[1].src = `assets/images/skull-red.svg`;
-        }
+       removeLife();
+       getSong();
     }
+}
+
+/**
+ * Function to update question counter 
+ */
+const updateQuestionCounter = () => {
+    document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
+}
+
+/**
+ * Function to removeLife
+ */
+const removeLife = () => {
+    livesLeft -= 1;
+    let lives = document.getElementsByClassName("life");
+    if (livesLeft === 2) {
+        lives[1].src = `assets/images/skull-red.svg`;
+    } else if (livesLeft == 1) {
+        lives[2].src = `assets/images/skull-red.svg`;
+    }
+    songNumber++;
+    updateQuestionCounter();
 }
 
 /**
@@ -266,9 +297,12 @@ const incrementScore = (score) => {
     //ads 50 points per question + one second per extra second
     currentScore += (50 + score);
     document.getElementById("score").innerHTML = currentScore;
+    localStorage.score = currentScore;
 }
 
 // Event Listener to get songs on initial page load
 window.addEventListener("load", () => {
     songs = loadAllSongs();
+    // clear out previous score tally
+    localStorage.score = 0;
 });
