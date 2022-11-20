@@ -1,20 +1,23 @@
-let score = String(Math.floor(Math.random() * 100));
-let username = `test${score}`;
+let score;
+let username;
 
 
 let usernameButton = document.getElementById("submit_user");
 
 usernameButton.addEventListener('click', function(){
     console.log('button pressed');
+    score = String(Math.floor(Math.random() * 100));
+    username = `test${score}`;
     setScore();
 });
 
 
 function setScore() {
     document.getElementById("new_score").innerHTML = `Well done ${username} you scored ${score}`;
-    localStorage.name = username;
-    localStorage.score = score
+    // localStorage.name = username;
+    // localStorage.score = score
     getScore();
+    checkHighscore();
 }
 
 
@@ -30,5 +33,10 @@ function getScore() {
 }
 
 function checkHighscore() {
-    
+    let currentHighscore = parseInt(localStorage.score);
+    if (score > currentHighscore) {
+        localStorage.name = username;
+        localStorage.score = score;
+        document.getElementById("display_message").innerHTML = "Congratulations on a new high score";
+    }
 }
