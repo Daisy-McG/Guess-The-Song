@@ -43,6 +43,34 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ## Testing
 
+### Validators
+
+All files passed through official JS validator:
+
+**modal.js**
+
+![game](/docs/readme/modal-js.JPG)
+
+**score.js**
+![score](/docs/readme/score-js.JPG)
+
+**game.js**
+![game](/docs/readme/game-js.JPG)
+
+All files passed through official CSS validator:
+* index.css
+* game.css
+* scoreboard.css
+
+![CSS](/docs/readme/css.JPG)
+
+All files passed through official HTML validator:
+* index.html
+* game.html
+* scoreboard.html
+
+![HTML](/docs/readme/html.JPG)
+
 ## Credits
 
 ### Images
