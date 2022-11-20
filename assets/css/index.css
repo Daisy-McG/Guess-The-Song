@@ -1,6 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One&display=swapLato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One=Lato+Inline&family=Raleway+Inline&family&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight&family=New+Rocker&family=Raleway&display=swap');
 
 :root {
     /* --background: #f79808; */
@@ -33,12 +31,11 @@ body {
 main {
     flex: 1 0 auto;
     background-color: var(--iconcolor);
-    /* background-image: url("https://tobyjepsonofficial.com/wp-content/uploads/2021/01/R-1710390-1283696130.jpeg-1280x720-1.jpg"); */
-    /* background-image: url("../images/pl.jpg");
+    background-image: url("../images/guitar.jpg");
     background-size: cover;
-    background-repeat: no-repeat; */
-    /* background-position: center center fixed;    */
-    /* max-height: 100vh; */
+    background-repeat: no-repeat;
+    /* background-position: center center fixed;   
+     max-height: 100vh; */
 }
 
 
@@ -49,10 +46,14 @@ header {
     color: var(--textcolor);
     text-align: center;
     box-sizing: border-box;
+    padding: 1rem 0;
 }
 
-header h1 {
-    font-size: 2rem;
+#title h1 {
+    font-size: 3rem;
+    font-family: 'New Rocker', sans-serif;
+    letter-spacing: 5px;
+    color: var(--bordercolor);
 }
 
 /* center section */
@@ -74,6 +75,13 @@ header h1 {
     flex-direction: column;
     background-color: var(--background);
     text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 8px;
+    margin-top: 3rem;
+    opacity: 0.8;
+    color: #000;
+    font-size: 1.6rem;
 }
 
 #welcome ul {
@@ -82,6 +90,10 @@ header h1 {
 
 #welcome ul>li {
     padding: 0.1rem;
+}
+
+li > i {
+    margin-bottom: 0.5rem;
 }
 
 .codeinst {
@@ -110,6 +122,13 @@ header h1 {
     justify-content: center;
     background-color: var(--background);
     text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    border-radius: 8px;
+    margin-top: 2rem;
+    opacity: 0.8;
+    color: #000;
+    font-weight: bolder;
 }
 
 #instructions h2 {
@@ -122,28 +141,39 @@ header h1 {
 
 ol>li {
     font-size: 0.8rem;
-    padding-bottom: 0.2rem;
+    padding: 0.5rem;
+}
+
+li > p {
+    font-size: 1rem;
 }
 
 .startbutton-div {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
 }
 
 /* start game */
-#startbutton {
+#start-button {
     height: 50px;
     background-color: var(--background);
     /* border: 2px solid var(--textcolor); */
     color: var(--textcolor);
     padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.6rem;
 }
 
 /* Footer */
 footer {
     font-family: 'Lato', sans-serif;
     width: 100vw;
-    position: fixed;
     left: 0;
     bottom: 0;
     border-top: solid 3px var(--bordercolor);
@@ -192,40 +222,42 @@ up to 420
 421/548
 549/772
 773/992 and upwards*/
-@media(min-width: 421px) {
-    header {
-        /* font-size: 2rem; */
-        font-size: 1.5rem;
+
+
+/* @media(min-width: 421px) { */
+    /* .title h1{ */
+        /* current font-size: 2rem; */
+        /* font-size: 1.5rem;
     }
 
-    #welcome {
+    #welcome { */
         /* font-size: 1rem; */
-        font-size: 1.5rem;
+        /* font-size: 1.5rem;
     }
 
-    #welcome ul>li {
+    #welcome ul>li { */
         /* padding: 0.1rem; */
-    }
+    /* }
 
-    .github {
+    .github { */
         /* font-size: 0.8rem; */
-    }
+    /* }
 
-    #instructions {
+    #instructions { */
         /* font-size: 1rem; */
-        font-size: 1.5rem;
+        /* font-size: 1.5rem;
     }
 
-    #instructions h2 {
+    #instructions h2 { */
         /* font-size: 1.5rem; */
-        font-size: 1.5rem;
+        /* font-size: 1.5rem;
     }
 
     #instructions ol>li {
         font-size: 1rem;
         padding-bottom: 0.4rem;
     }
-}
+} */
 
 /* @media(min-width: 548px) {
     header {

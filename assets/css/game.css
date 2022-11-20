@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fascinate&family=Fascinate+Inline&family=Pirata+One&display=swapLato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight&family=New+Rocker&family=Raleway&display=swap');
 
 :root {
-    --background: #F79808;
-    --buttoncolor: #2B78E4;
-    --textcolor: #000;
+    /* --background: #f79808; */
+    --background: #0f7988;
+    --buttoncolor: #2b78e4;
+    --textcolor: #eeffdd;
     --bordercolor: #000;
     --iconcolor: #4D4D4D;
     --white: #fff;
@@ -30,7 +31,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/hero-img.webp");
+    background-image: url("../images/concert.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 2500px;
@@ -44,14 +45,32 @@ footer {
     display: none !important;
 }
 
+/* header */
 header {
     width: 100%;
     background-color: var(--background);
     color: var(--textcolor);
     text-align: center;
     box-sizing: border-box;
+    padding: 1rem 0;
 }
 
+#title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-family: 'New Rocker', sans-serif;
+    letter-spacing: 5px;
+    color: var(--bordercolor);
+}
+
+.home {
+    padding-left: 1rem;
+}
 
 /* Code to hide spotify box */
 
@@ -92,10 +111,6 @@ header {
     right: 0;
     bottom: 0;
     left: -5px;
-}
-
-.disable {
-    pointer-events: none;
 }
 
 /* radio game screen */
@@ -171,15 +186,18 @@ header {
 }
 
 /* counter */
-#watch{
-    width: 100px;
-    height: 100px;
+#main-timer{
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
 }
 
 .base-timer {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
   }
   
   .base-timer__svg {
@@ -220,14 +238,59 @@ header {
   
   .base-timer__label {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
+    font-size: 20px;
   }
+
+/* Bonus modal*/
+#overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#overlay .modal{
+    width: 300px;
+    height: 300px;
+    background: white;
+    text-align: center;
+    position: relative;
+}
+#overlay .modal .bonus-btn{
+    font-size: 18px;
+    text-align: center;
+}
+
+#overlay .modal .bonus-btn.correct{
+    background: green;
+}
+
+#overlay .modal .bonus-btn.incorrect{
+    background: red;
+}
+
+#bonus-timer{
+    width: 75px;
+    height: 75px;
+    background: red;
+    position: absolute;
+    right: 50%;
+    bottom: 10px;
+    transform: translate(50%, 0);
+}
+
 /* Scoring */
 
 .score-container {
