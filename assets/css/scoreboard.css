@@ -14,25 +14,24 @@
     padding: 0;
 }
 
-html,
-body {
+html, body {
     height: 100%;
 }
 
 body {
     font-family: 'Raleway', sans-serif;
-    display: flex;
-    flex-direction: column;
 }
 
 main {
-    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
     background-color: var(--iconcolor);
-    background-image: url("../images/guitar.jpg");
+    background-image: url("../images/scoreboard.webp");
     background-size: cover;
     background-repeat: no-repeat;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+    min-height: 100%;
 }
 
 header {
@@ -53,14 +52,21 @@ h1 {
 
 .scoreboard {
     width: 80%;
-    background-color: #f2f2f2;
+    background-color: var(--background);
     border-radius: 10px;
     box-shadow: 0 4px 21px -12px rgb(0 0 0 / 66%);
-    border: 2px solid var(--background);
+    border: 2px solid var(--bordercolor);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 10px;
+}
+
+ul {
+    text-align: center;
+    list-style: none;
+    padding: 5px;
 }
 
 .hide {
