@@ -41,7 +41,8 @@ async function loadAllSongs() {
 }
 
 /**
- * Gets a song from the array
+ * Function to get a song from the array
+ * If user has no lives left, game will end
  */
 const getSong = () => {
     if (songs.length === 0) {
@@ -50,6 +51,7 @@ const getSong = () => {
     let index = Math.floor(Math.random() * songs.length);
     currentSong = songs[index];
     songs.pop(index);
+    checkSong();
     addSongToIframe();
     displayCounter();
 }
@@ -60,6 +62,26 @@ const getSong = () => {
 const addSongToIframe = () => {
     document.getElementById("spotify-player").src = `https://open.spotify.com/embed/track/${currentSong.id}`;
     noCheating();
+}
+
+/**
+ * Function to get song from API
+ */
+ let checkSong = () => {
+    // currentSong.id = 3
+    fetch(`https://kareoke.p.rapidapi.com/v1/song/spotify?id=${currentSong.id}`)
+    .then(jsonData => jsonData.json())
+    .then(data => songExists(data))
+}
+
+/**
+ * Function to check if song doesnt exist on spotify
+ * Attempt to get a new song
+ */
+const songExists = (song) => {
+    if (song.msg === `We couldn't find a data with this id`) {
+        getSong();
+    }
 }
 
 /**
@@ -385,7 +407,7 @@ function checkAnswer(answer) {
     const stripAns = answer.replace(/[^a-z0-9]/gi, '').toLowerCase();
     let actualAns = currentSong.title.toLowerCase();
     actualAns = actualAns.replace(/[^a-z0-9]/gi, '');
-    
+
     if (stripAns === actualAns) {
         incrementScore(timeLeft)
         clearInterval(timerInterval);
