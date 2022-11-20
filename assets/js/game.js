@@ -78,6 +78,8 @@ userInfo.addEventListener("submit", e => {
     userName = document.getElementById("user-name").value;
     // remove white space before and after
     userName = userName.replace(/^\s+|\s+$/gm, '');
+    // send username to storage
+    localStorage.name = userName;
     //get category selection
     let selectedCategory = document.querySelector("#user-info input[type='radio']:checked").value;
 
@@ -242,7 +244,6 @@ let bonusCount = 30;
 /**
  * Function to trigger Bonus question
  */
-
 function bonusQuestion(){
     let artist = currentSong.artist;
     let title = currentSong.title;
@@ -277,6 +278,9 @@ function bonusQuestion(){
     startBonusInterval()
 }
 
+/**
+ * returns a possible year from the possible dates array and mutates the array
+*/
 function addAPossibleYear(arr){
         let length = arr.length
         let index = Math.floor(Math.random() * length)
@@ -285,6 +289,9 @@ function addAPossibleYear(arr){
         return year
 }
 
+/**
+ * starts the countdown for the bonus
+*/
 function startBonusInterval(){
     bonusTimerInterval = setInterval(()=>{
         bonusCount -=1
@@ -296,6 +303,7 @@ function startBonusInterval(){
     }, 1000)
 }
 
+// Checks if the button pressed is correct
 window.addEventListener("click", e =>{
     if(e.target.classList.contains("bonus-btn")){
         let releaseYear = currentSong.release_year;
@@ -307,6 +315,10 @@ window.addEventListener("click", e =>{
     }
 })
 
+
+/**
+ * Function when the bonus is won
+*/
 function winBonus(releaseYear){
     let buttons = Array.from(document.getElementsByClassName("bonus-btn"));
     buttons.forEach(btn=>{
@@ -320,7 +332,9 @@ function winBonus(releaseYear){
     clearBonus()
 }
 
-
+/**
+ * Function when the bonus is lost
+*/
 function loseBonus(releaseYear){
     let buttons = Array.from(document.getElementsByClassName("bonus-btn"));
     buttons.forEach(btn=>{
@@ -334,6 +348,9 @@ function loseBonus(releaseYear){
     clearBonus()
 }
 
+/**
+ * Function to clear the bonus and call the next song
+*/
 function clearBonus(){
     bonusCount = 15
     clearInterval(bonusTimerInterval);
@@ -364,7 +381,12 @@ songInput.addEventListener("submit", e => {
  * Decreases lives on incorrect guess.
  */
 function checkAnswer(answer) {
-    if (answer.toLowerCase() === currentSong.title.toLowerCase()) {
+    // Strip special characters from answers
+    const stripAns = answer.replace(/[^a-z0-9]/gi, '').toLowerCase();
+    let actualAns = currentSong.title.toLowerCase();
+    actualAns = actualAns.replace(/[^a-z0-9]/gi, '');
+    
+    if (stripAns === actualAns) {
         incrementScore(timeLeft)
         clearInterval(timerInterval);
         timePassed = 0;
