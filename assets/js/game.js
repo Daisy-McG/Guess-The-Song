@@ -12,13 +12,13 @@ let genre = "";
 const loadGenreSongs = (genre) => {
     let main = document.getElementById("game-background");
     if (genre === "Rock") {
-        main.style.backgroundImage = "url('/assets/images/drummer.jpg')";
+        main.style.backgroundImage = "url('assets/images/drummer.jpg')";
     }
     else if (genre === "Pop") {
-        main.style.backgroundImage = "url('/assets/images/disco-ball.jpg')";
+        main.style.backgroundImage = "url('assets/images/disco-ball.jpg')";
     }
     else if (genre === "Country") {
-        main.style.backgroundImage = "url('/assets/images/guitar.jpg')";
+        main.style.backgroundImage = "url('assets/images/guitar.jpg')";
     }
     if (genre !== "all") {
         let results = songs.filter(song => {
@@ -44,6 +44,9 @@ async function loadAllSongs() {
  * Gets a song from the array
  */
 const getSong = () => {
+    if (songs.length === 0) {
+        window.location.href = 'scoreboard.html';
+    }
     let index = Math.floor(Math.random() * songs.length);
     currentSong = songs[index];
     songs.pop(index);
@@ -148,8 +151,6 @@ function displayCounter() {
     `;
 
     startTimer();
-
-    
 }
 
 /**
@@ -299,9 +300,9 @@ window.addEventListener("click", e =>{
     if(e.target.classList.contains("bonus-btn")){
         let releaseYear = currentSong.release_year;
         if(e.target.innerHTML === releaseYear){
-            winBonus(releaseYear)
+            winBonus(releaseYear);
         } else {
-            loseBonus(releaseYear)
+            loseBonus(releaseYear);
         }
     }
 })
@@ -369,9 +370,9 @@ function checkAnswer(answer) {
         timePassed = 0;
         bonusQuestion();
         songNumber++;
-        updateQuestionCounter()
+        updateQuestionCounter();
     } else {
-        wrongInputOrTimesUp()
+        wrongInputOrTimesUp();
     }
 }
 
@@ -387,7 +388,7 @@ const updateQuestionCounter = () => {
  */
 function wrongInputOrTimesUp(){
     timePassed = 0
-    removeLife()
+    removeLife();
     clearInterval(timerInterval);
     getSong();
 }
@@ -403,6 +404,9 @@ const removeLife = () => {
         lives[1].src = `assets/images/skull-red.svg`;
     } else if (livesLeft == 1) {
         lives[2].src = `assets/images/skull-red.svg`;
+    }
+    else {
+        window.location.href = 'scoreboard.html'
     }
     songNumber++;
     updateQuestionCounter();
