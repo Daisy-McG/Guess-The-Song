@@ -28,11 +28,11 @@ function getHighScore() {
     let topUsername = localStorage.currentTopname;
     let topScore = localStorage.currentHighscore;
     if(topScore) {
-        document.getElementById("high_score").innerHTML = `The current high score is ${topUsername}: ${topScore}`;
+        document.getElementById("high_score").innerHTML = `The current high score is: ${topScore} scored by ${topUsername}`;
     } else {
-        localStorage.currentTopname = "No Players Yet";
+        localStorage.currentTopname = "No Previous High Score Recorded";
         localStorage.currentHighscore = 0;
-        document.getElementById("high_score").innerHTML = "No high score recorded";
+        document.getElementById("high_score").innerHTML = "";
     }
 }
 
