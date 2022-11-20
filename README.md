@@ -48,6 +48,9 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 * Image of rock band on main game screen taken from - [PixaBay](https://pixabay.com/photos/guitar-guitarist-music-756326/)
 * Scoreboard background image from [PixaBay](https://pixabay.com/photos/concert-microphone-bandstand-music-7424190/)
+* Pop genre background image taken from - [Pexels](https://www.pexels.com/photo/silver-disco-ball-593467/)
+* Rock genre background image taken from - [Pexels](https://www.pexels.com/photo/person-playing-drums-1475021/)
+* Initial game background image taken from - [Pexels](https://www.pexels.com/photo/people-at-concert-1105666/)
 * [Favicon from this Font Awesome project](https://gauger.io/fonticon/)
 ### Code
 
