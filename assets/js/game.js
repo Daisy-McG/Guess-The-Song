@@ -44,6 +44,9 @@ async function loadAllSongs() {
  * Gets a song from the array
  */
 const getSong = () => {
+    if (songs.length === 0) {
+        window.location.href = 'scoreboard.html';
+    }
     let index = Math.floor(Math.random() * songs.length);
     currentSong = songs[index];
     songs.pop(index);
@@ -75,8 +78,6 @@ userInfo.addEventListener("submit", e => {
     userName = document.getElementById("user-name").value;
     // remove white space before and after
     userName = userName.replace(/^\s+|\s+$/gm, '');
-    // set current player to verified username
-    localStorage.name = userName;
     //get category selection
     let selectedCategory = document.querySelector("#user-info input[type='radio']:checked").value;
 
@@ -96,36 +97,36 @@ userInfo.addEventListener("submit", e => {
 })
 
 
-let questionCorrectlyAnswered = false
+// variables for the counter
+let timePassed = 0;
+let TIME_LIMIT = 60;
+let timeLeft = TIME_LIMIT;
+let WARNING_THRESHOLD = 30;
+let ALERT_THRESHOLD = 15;
+const FULL_DASH_ARRAY = 283;
+
+const COLOR_CODES = {
+    info: {
+        color: "green"
+    },
+    warning: {
+        color: "orange",
+        threshold: WARNING_THRESHOLD
+    },
+    alert: {
+        color: "red",
+        threshold: ALERT_THRESHOLD
+    }
+};
+let timerInterval = null;
+let remainingPathColor = COLOR_CODES.info.color;
+
 /**
- * Function to update HTML with song
+ * Function display the counter
  */
 function displayCounter() {
-    const FULL_DASH_ARRAY = 283;
-    const WARNING_THRESHOLD = 30;
-    const ALERT_THRESHOLD = 10;
 
-    const COLOR_CODES = {
-        info: {
-            color: "green"
-        },
-        warning: {
-            color: "orange",
-            threshold: WARNING_THRESHOLD
-        },
-        alert: {
-            color: "red",
-            threshold: ALERT_THRESHOLD
-        }
-    };
-
-    let timePassed = 0;
-    const TIME_LIMIT = 60;
-    let timeLeft = TIME_LIMIT;
-    let timerInterval = null;
-    let remainingPathColor = COLOR_CODES.info.color;
-
-    document.getElementById("watch").innerHTML = `
+    document.getElementById("main-timer").innerHTML = `
     <div class="base-timer">
       <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <g class="base-timer__circle">
@@ -150,87 +151,199 @@ function displayCounter() {
     `;
 
     startTimer();
+}
 
-    //When timer reaches 0
-    function onTimesUp() {
-        clearInterval(timerInterval);
-        removeLife();
-        getSong();
+/**
+ * Function to start the countdown
+ */
+function startTimer() {
+    timerInterval = setInterval(() => {
+        timePassed = timePassed += 1;
+        timeLeft = TIME_LIMIT - timePassed;
+        document.getElementById(`base-timer-label`).innerHTML = formatTime(
+            timeLeft
+        );
+        setCircleDasharray();
+        setRemainingPathColor(timeLeft);
+
+        if (timeLeft === 0) {
+            wrongInputOrTimesUp();
+        }     
+    }, 1000);
+}
+
+/**
+ * Function to format the time in MinMin:SecSec format
+ */
+function formatTime(time) {
+    let minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+    if (seconds < 10) {
+        seconds = `0${seconds}`;
     }
 
-    function startTimer() {
-        timerInterval = setInterval(() => {
-            timePassed = timePassed += 1;
-            timeLeft = TIME_LIMIT - timePassed;
-            document.getElementById("base-timer-label").innerHTML = formatTime(
-                timeLeft
-            );
-            setCircleDasharray();
-            setRemainingPathColor(timeLeft);
+    return `${minutes}:${seconds}`;
+}
 
-            if (timeLeft === 0) {
-                onTimesUp();
-            }
-            if (questionCorrectlyAnswered === true) {
-                clearInterval(timerInterval);
-                getSong();
-                questionCorrectlyAnswered = false
-            }
-        }, 1000);
-    }
-
-    function formatTime(time) {
-        let minutes = Math.floor(time / 60);
-        let seconds = time % 60;
-
-        if (minutes < 10) {
-            minutes = `0${minutes}`;
-        }
-        if (seconds < 10) {
-            seconds = `0${seconds}`;
-        }
-
-        return `${minutes}:${seconds}`;
-    }
-
-    function setRemainingPathColor(timeLeft) {
-        const {
-            alert,
-            warning,
-            info
-        } = COLOR_CODES;
-        if (timeLeft <= alert.threshold) {
-            document
-                .getElementById("base-timer-path-remaining")
-                .classList.remove(warning.color);
-            document
-                .getElementById("base-timer-path-remaining")
-                .classList.add(alert.color);
-        } else if (timeLeft <= warning.threshold) {
-            document
-                .getElementById("base-timer-path-remaining")
-                .classList.remove(info.color);
-            document
-                .getElementById("base-timer-path-remaining")
-                .classList.add(warning.color);
-        }
-    }
-
-    function calculateTimeFraction() {
-        const rawTimeFraction = timeLeft / TIME_LIMIT;
-        return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-    }
-
-    function setCircleDasharray() {
-        const circleDasharray = `${(
-        calculateTimeFraction() * FULL_DASH_ARRAY
-      ).toFixed(0)} 283`;
+/**
+ * Function to change color of timer
+ */
+ function setRemainingPathColor(timeLeft) {
+    const {
+        alert,
+        warning,
+        info
+    } = COLOR_CODES;
+    if (timeLeft <= alert.threshold) {
         document
             .getElementById("base-timer-path-remaining")
-            .setAttribute("stroke-dasharray", circleDasharray);
+            .classList.remove(warning.color);
+        document
+            .getElementById("base-timer-path-remaining")
+            .classList.add(alert.color);
+    } else if (timeLeft <= warning.threshold) {
+        document
+            .getElementById("base-timer-path-remaining")
+            .classList.remove(info.color);
+        document
+            .getElementById("base-timer-path-remaining")
+            .classList.add(warning.color);
+    }
+}
+
+
+/**
+ * Function to calculate time franction for the dasharray
+ */
+function calculateTimeFraction() {
+    const rawTimeFraction = timeLeft / TIME_LIMIT;
+    return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+}
+
+/**
+ * Functionstablish the dasharray
+ */
+function setCircleDasharray() {
+    const circleDasharray = `${(
+        calculateTimeFraction() * FULL_DASH_ARRAY
+        ).toFixed(0)} 283`;
+        document
+        .getElementById(`base-timer-path-remaining`)
+        .setAttribute("stroke-dasharray", circleDasharray);
     }
 
+
+let bonusTimerInterval = null;
+let bonusCount = 30;
+/**
+ * Function to trigger Bonus question
+ */
+
+function bonusQuestion(){
+    let artist = currentSong.artist;
+    let title = currentSong.title;
+    let releaseYear = Number(currentSong.release_year);
+    let possible_dates = [releaseYear];
+    while(possible_dates.length < 4){
+        let option = Math.floor(Math.random() * ((releaseYear + 3) - (releaseYear - 3) + 1)) + (releaseYear - 3);
+        if(!possible_dates.includes(option)){
+            possible_dates.push(option)
+        }
+    }
+    document.getElementById("base-timer-label").innerText = "01:00";
+    let header = document.querySelector("header");
+    let bonus = document.createElement("div");
+    bonus.setAttribute("id", "bonus");
+    document.body.insertBefore(bonus, header)
+    let bonusLevel = `
+    <div id="overlay">
+        <div class="modal">
+        <h2>Bonus Question</h2>
+        <h3>When did ${artist} released ${title}?</h3>
+        <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+        <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+        <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+        <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+        <div id="bonus-timer"><span>${formatTime(bonusCount)}</span></div>
+        </div>
+    </div>`
+    bonus.innerHTML = bonusLevel
+
+
+    startBonusInterval()
 }
+
+function addAPossibleYear(arr){
+        let length = arr.length
+        let index = Math.floor(Math.random() * length)
+        let year = arr[index];
+        arr.splice(index, 1);
+        return year
+}
+
+function startBonusInterval(){
+    bonusTimerInterval = setInterval(()=>{
+        bonusCount -=1
+        document.querySelector("#bonus-timer span").innerHTML = formatTime(bonusCount);
+
+        if(bonusCount === 0){
+            loseBonus()
+        }
+    }, 1000)
+}
+
+window.addEventListener("click", e =>{
+    if(e.target.classList.contains("bonus-btn")){
+        let releaseYear = currentSong.release_year;
+        if(e.target.innerHTML === releaseYear){
+            winBonus(releaseYear);
+        } else {
+            loseBonus(releaseYear);
+        }
+    }
+})
+
+function winBonus(releaseYear){
+    let buttons = Array.from(document.getElementsByClassName("bonus-btn"));
+    buttons.forEach(btn=>{
+        if(btn.innerHTML === releaseYear){
+            btn.classList.add("correct")
+        }
+    })
+    //increments the score by 10 (base 50 + -40)
+    incrementScore(-40);
+
+    clearBonus()
+}
+
+
+function loseBonus(releaseYear){
+    let buttons = Array.from(document.getElementsByClassName("bonus-btn"));
+    buttons.forEach(btn=>{
+        if(btn.innerHTML === releaseYear){
+            btn.classList.add("correct")
+        } else {
+            btn.classList.add("incorrect")
+        }
+    })
+
+    clearBonus()
+}
+
+function clearBonus(){
+    bonusCount = 15
+    clearInterval(bonusTimerInterval);
+    clearInterval(timerInterval);
+    setTimeout(()=>{
+        document.getElementById("bonus").remove()
+        getSong();
+    }, 2000)
+}
+
 
 
 let songInput = document.getElementById("user-song")
@@ -252,14 +365,14 @@ songInput.addEventListener("submit", e => {
  */
 function checkAnswer(answer) {
     if (answer.toLowerCase() === currentSong.title.toLowerCase()) {
-        questionCorrectlyAnswered = true;
+        incrementScore(timeLeft)
+        clearInterval(timerInterval);
+        timePassed = 0;
+        bonusQuestion();
         songNumber++;
-        // Needs to be updated with time left
-        incrementScore(50);
         updateQuestionCounter();
     } else {
-       removeLife();
-       getSong();
+        wrongInputOrTimesUp();
     }
 }
 
@@ -269,6 +382,17 @@ function checkAnswer(answer) {
 const updateQuestionCounter = () => {
     document.getElementById("q-counter").innerHTML = `Song ${songNumber} out of ${totalSongs}`;
 }
+
+/**
+ * Function when times is up or user enter wrong input
+ */
+function wrongInputOrTimesUp(){
+    timePassed = 0
+    removeLife();
+    clearInterval(timerInterval);
+    getSong();
+}
+
 
 /**
  * Function to removeLife
@@ -281,6 +405,9 @@ const removeLife = () => {
     } else if (livesLeft == 1) {
         lives[2].src = `assets/images/skull-red.svg`;
     }
+    else {
+        window.location.href = 'scoreboard.html'
+    }
     songNumber++;
     updateQuestionCounter();
 }
@@ -291,14 +418,12 @@ const removeLife = () => {
  */
 const incrementScore = (score) => {
     let currentScore = parseInt(document.getElementById("score").innerHTML);
-    currentScore += score;
+    //ads 50 points per question + one second per extra second
+    currentScore += (50 + score);
     document.getElementById("score").innerHTML = currentScore;
-    localStorage.score = currentScore;
 }
 
 // Event Listener to get songs on initial page load
 window.addEventListener("load", () => {
     songs = loadAllSongs();
-    // clear out previous score tally
-    localStorage.score = 0;
 });
