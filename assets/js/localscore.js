@@ -5,7 +5,6 @@ let username;
 let usernameButton = document.getElementById("submit_user");
 
 usernameButton.addEventListener('click', function(){
-    console.log('button pressed');
     score = String(Math.floor(Math.random() * 1000));
     username = `test${score}`;
     setScore();
@@ -14,19 +13,12 @@ usernameButton.addEventListener('click', function(){
 
 function setScore() {
     document.getElementById("new_score").innerHTML = `Well done ${username} you scored ${score}`;
-    // localStorage.name = username;
-    // localStorage.score = score
     getScore();
     checkHighscore();
 }
 
 
 function getScore() {
-    // let current_topuser = localStorage.getItem("username");
-    // let current_topscore = localStorage.getItem("score");
-    // console.log(localStorage.getItem("score"));
-    // document.getElementById("high_score").innerHTML = `The current high score is ${current_topuser}: ${current_topscore}`;
-
     let topUsername = localStorage.name;
     let topScore = localStorage.score;
     document.getElementById("high_score").innerHTML = `The current high score is ${topUsername}: ${topScore}`;
