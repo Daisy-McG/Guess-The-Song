@@ -17,9 +17,10 @@ Guess The Song is a music quiz for all. Test your musical knowledge by listening
 3. Press the start button to start the game.
 4. Press the play button to play the song.
 5. You have 60 seconds to type the name of the song playing in the answer box and submit it.
-6. The quicker the answer, the more points you get.
-7. You have 3 lives before the game ends.
-8. You will get added to the leader board at the end uf you score in the top 20.
+6. If you guess the answer, a bonus question will appear. This will score additional points if guessed correctly.
+7. The quicker the answer, the more points you get.
+8. You have 3 lives before the game ends.
+9. You will get added to the leader board at the end if you score in the top 20.
 
 ## Deployment
 
