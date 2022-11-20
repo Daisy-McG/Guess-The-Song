@@ -17,7 +17,13 @@ function setScore() {
 }
 
 function getScore() {
+    let updateUser;
+    let updateScore;
     for (i = 0; i < localStorage.length; i++) {
     console.log(localStorage.getItem("username",[i]));
+    console.log(localStorage.getItem("score",[i]));
+    updateUser = localStorage.getItem("username",[i]);
+    updateScore = localStorage.getItem("username",[i]);
+    document.getElementById("localdata").innerHTML = `Username ${updateUser} scored ${updateScore}`;
     }
 }
