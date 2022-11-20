@@ -18,20 +18,9 @@ html, body {
     height: 100%;
 }
 
+
 body {
     font-family: 'Raleway', sans-serif;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--iconcolor);
-    background-image: url("../images/scoreboard.webp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    align-items: center;
-    /* justify-content: center; commented until style decision made*/
-    min-height: 100%;
 }
 
 header {
@@ -43,11 +32,34 @@ header {
     padding: 1rem 0;
 }
 
+#title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.life {
+    height: 25px;
+}
+
 h1 {
     font-size: 3rem;
     font-family: 'New Rocker', sans-serif;
     letter-spacing: 5px;
     color: var(--bordercolor);
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--iconcolor);
+    background-image: url("../images/scoreboard.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    /* justify-content: center; commented until style decision made*/
+    min-height: 100%;
 }
 
 .scoreboard {

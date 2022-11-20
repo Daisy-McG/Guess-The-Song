@@ -7,11 +7,17 @@ let username = localStorage.name;
 *  Runs the rest of the score checking and updates
 */
 function setScore() {
-    // Print to score page
-    document.getElementById("new_score").innerHTML = `Well done ${username} you scored ${score}`;
-    // Call the rest of the checking and update functions
-    getHighScore();
-    checkHighscore();
+    if(score > 0){
+        // Print to score page
+        document.getElementById("new_score").innerHTML = `Well done ${username} you scored ${score}`;
+        // Call the rest of the checking and update functions
+        getHighScore();
+        checkHighscore();
+    } else {
+        document.getElementById("new_score").innerHTML = `Sorry ${username} no correct answers this time. 
+        Have another try.`;
+    }
+    
 }
 
 /* 

@@ -293,10 +293,12 @@ const incrementScore = (score) => {
     let currentScore = parseInt(document.getElementById("score").innerHTML);
     currentScore += score;
     document.getElementById("score").innerHTML = currentScore;
-    localStorage.currentScore = currentScore;
+    localStorage.score = currentScore;
 }
 
 // Event Listener to get songs on initial page load
 window.addEventListener("load", () => {
     songs = loadAllSongs();
+    // clear out previous score tally
+    localStorage.score = 0;
 });
