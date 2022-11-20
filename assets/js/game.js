@@ -257,6 +257,7 @@ function checkAnswer(answer) {
         updateQuestionCounter();
     } else {
        removeLife();
+       getSong();
     }
 }
 
@@ -274,9 +275,9 @@ const removeLife = () => {
     livesLeft -= 1;
     let lives = document.getElementsByClassName("life");
     if (livesLeft === 2) {
-        lives[2].src = `assets/images/skull-red.svg`;
-    } else if (livesLeft == 1) {
         lives[1].src = `assets/images/skull-red.svg`;
+    } else if (livesLeft == 1) {
+        lives[2].src = `assets/images/skull-red.svg`;
     }
     songNumber++;
     updateQuestionCounter();
