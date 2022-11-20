@@ -30,7 +30,7 @@ main {
     background-size: cover;
     background-repeat: no-repeat;
     align-items: center;
-    /* justify-content: center; */
+    /* justify-content: center; commented until style decision made*/
     min-height: 100%;
 }
 
@@ -61,12 +61,14 @@ h1 {
     align-items: center;
     justify-content: center;
     margin: 10px;
+    padding: 10px;
 }
 
 ul {
     text-align: center;
     list-style: none;
     padding: 5px;
+    color: var(--textcolor);
 }
 
 .hide {
