@@ -1,25 +1,23 @@
-let score = Math.floor(Math.random() * 100);
+let score = String(Math.floor(Math.random() * 100));
+let username = "test2"
 
 let usernameButton = document.getElementById("submit_user");
+
 usernameButton.addEventListener('click', function(){
-	console.log('button pressed');
-    validateUsername();
+	document.getElementById("localdata").innerHTML = "button pressed";
+    console.log('button pressed');
+    setScore();
 });
 
-function validateUsername() {
-    console.log('validate username');
-	let username = document.getElementById("username").value;
-	username = username.trim();
-	if (!username) {
-		alert('Username cannot be blank');
-        console.log('username blank');
-	} else {
-        console.log(username)
-        setScore();
-        console.log(localStorage.length)
-    }
+function setScore() {
+    console.log(`setting username to: ${username}`);
+    console.log(`setting score to ${score}`);
+    localStorage.setItem("username",username, "score",score);
+    getScore();
 }
 
-function setScore() {
-    localStorage.setItem(username, score);
+function getScore() {
+    for (i = 0; i < localStorage.length; i++) {
+    console.log(localStorage.getItem("username",[i]));
+    }
 }
