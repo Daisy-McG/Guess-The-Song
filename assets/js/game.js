@@ -75,6 +75,8 @@ userInfo.addEventListener("submit", e => {
     userName = document.getElementById("user-name").value;
     // remove white space before and after
     userName = userName.replace(/^\s+|\s+$/gm, '');
+    // set current player to verified username
+    localStorage.name = userName;
     //get category selection
     let selectedCategory = document.querySelector("#user-info input[type='radio']:checked").value;
 
@@ -291,6 +293,7 @@ const incrementScore = (score) => {
     let currentScore = parseInt(document.getElementById("score").innerHTML);
     currentScore += score;
     document.getElementById("score").innerHTML = currentScore;
+    localStorage.currentScore = currentScore;
 }
 
 // Event Listener to get songs on initial page load
