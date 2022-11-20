@@ -41,6 +41,7 @@ No Cheating - Console log styling taken from [Stack Overflow](https://stackoverf
 
 * [Favicon from this Font Awesome project](https://gauger.io/fonticon/)
 * [Google Fonts](https://fonts.google.com/)
+* [Local data storage for scoreboard from w3Schools](https://www.w3schools.com/js/js_api_web_storage.asp)
 * Agustin
 * Carlos
 * [Cheryl](https://www.linkedin.com/in/ccp84/)
