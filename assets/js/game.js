@@ -364,7 +364,12 @@ songInput.addEventListener("submit", e => {
  * Decreases lives on incorrect guess.
  */
 function checkAnswer(answer) {
-    if (answer.toLowerCase() === currentSong.title.toLowerCase()) {
+    // Strip special characters from answers
+    const stripAns = answer.replace(/[^a-z0-9]/gi, '').toLowerCase();
+    let actualAns = currentSong.title.toLowerCase();
+    actualAns = actualAns.replace(/[^a-z0-9]/gi, '');
+    
+    if (stripAns === actualAns) {
         incrementScore(timeLeft)
         clearInterval(timerInterval);
         timePassed = 0;
