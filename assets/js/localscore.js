@@ -9,10 +9,15 @@ let username = localStorage.name;
 function setScore() {
     // Print to score page
     if(score > 0){
-        document.getElementById("new_score").innerHTML = `Well done ${username} you scored ${score}`;
+        document.getElementById("new_score").innerHTML = `
+        <i class="fa-solid fa-music"></i>
+        <p> Well done ${username}. </p>
+        <p> You scored ${score}. </p>`;
     } else {
-        document.getElementById("new_score").innerHTML = `Sorry ${username} no correct answers this time. 
-        Have another try.`;
+        document.getElementById("new_score").innerHTML = `
+        <i class="fa-solid fa-music"></i>
+        <p> Sorry ${username} no correct answers this time. </p>
+        <p> Have another try. </p>`;
     }
     // Call the rest of the checking and update functions
     getHighScore();
@@ -28,11 +33,14 @@ function getHighScore() {
     let topUsername = localStorage.currentTopname;
     let topScore = localStorage.currentHighscore;
     if(topScore) {
-        document.getElementById("high_score").innerHTML = `The current high score is ${topUsername}: ${topScore}`;
+        document.getElementById("high_score").innerHTML = `
+        <i class="fa-solid fa-music"></i>
+        <p>The current high score is: ${topScore}. </p>
+        <p> Scored by: ${topUsername}. </p>`;        
     } else {
-        localStorage.currentTopname = "No Players Yet";
+        localStorage.currentTopname = "No Previous High Score Recorded";
         localStorage.currentHighscore = 0;
-        document.getElementById("high_score").innerHTML = "No high score recorded";
+        document.getElementById("high_score").innerHTML = "";
     }
 }
 
@@ -47,7 +55,9 @@ function checkHighscore() {
     if (score > currentHighscore) {
         localStorage.currentTopname = username;
         localStorage.currentHighscore = score;
-        document.getElementById("display_message").innerHTML = "Congratulations on a new high score";
+        document.getElementById("display_message").innerHTML = `
+        <i class="fa-solid fa-music"></i>
+        <p>Congratulations on a new high score!</p>`;
     } else {
         document.getElementById("display_message").innerHTML = "";
     }
