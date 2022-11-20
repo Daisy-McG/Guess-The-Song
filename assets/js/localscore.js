@@ -1,3 +1,7 @@
+/*
+/ All of this is just for testing purposes
+*/
+
 let score;
 let username;
 
@@ -9,7 +13,14 @@ usernameButton.addEventListener('click', function(){
     username = `test${score}`;
     setScore();
 });
+/*
+***************************************************************************
+*/
 
+
+/* 
+/ Feed in the username and their score here
+*/
 
 function setScore() {
     document.getElementById("new_score").innerHTML = `Well done ${username} you scored ${score}`;
