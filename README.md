@@ -17,9 +17,10 @@ Guess The Song is a music quiz for all. Test your musical knowledge by listening
 3. Press the start button to start the game.
 4. Press the play button to play the song.
 5. You have 60 seconds to type the name of the song playing in the answer box and submit it.
-6. The quicker the answer, the more points you get.
-7. You have 3 lives before the game ends.
-8. You will get added to the leader board at the end uf you score in the top 20.
+6. If you guess the answer, a bonus question will appear. This will score additional points if guessed correctly.
+7. The quicker the answer, the more points you get.
+8. You have 3 lives before the game ends.
+9. You will get added to the leader board at the end if you score in the top 20.
 
 ## Deployment
 
@@ -41,6 +42,34 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Daisy-McG/Guess-The-Song)
 
 ## Testing
+
+### Validators
+
+All files passed through official JS validator:
+
+**modal.js**
+
+![game](/docs/readme/modal-js.JPG)
+
+**score.js**
+![score](/docs/readme/score-js.JPG)
+
+**game.js**
+![game](/docs/readme/game-js.JPG)
+
+All files passed through official CSS validator:
+* index.css
+* game.css
+* scoreboard.css
+
+![CSS](/docs/readme/css.JPG)
+
+All files passed through official HTML validator:
+* index.html
+* game.html
+* scoreboard.html
+
+![HTML](/docs/readme/html.JPG)
 
 ## Credits
 
