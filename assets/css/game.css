@@ -115,7 +115,8 @@ h1 {
 
 /* radio game screen */
 .radio-box {
-    width: 800px;
+    width: 90%;
+    max-width: 765px;
     background-color: #f2f2f2;
     border-radius: 10px;
     box-shadow: 0 4px 21px -12px rgb(0 0 0 / 66%);
@@ -225,15 +226,15 @@ h1 {
   }
   
   .base-timer__path-remaining.green {
-    color: rgb(65, 184, 131);
+    color: rgb(63, 186, 103);
   }
   
   .base-timer__path-remaining.orange {
-    color: orange;
+    color: rgb(221, 130, 15);
   }
   
   .base-timer__path-remaining.red {
-    color: red;
+    color: rgb(215, 83, 83);
   }
   
   .base-timer__label {
@@ -262,33 +263,71 @@ h1 {
 }
 
 #overlay .modal{
-    width: 300px;
+    width: 90%;
+    max-width: 350px;
     height: 300px;
+    border:2px solid var(--background);
+    border-radius: 10px;
     background: white;
     text-align: center;
     position: relative;
+    display: flex;
+    flex-flow: column;
 }
-#overlay .modal .bonus-btn{
+
+#overlay .modal h2{
+    font-size: 2rem;
+    font-family: 'New Rocker', sans-serif;
+    margin: 15px 0;
+}
+
+#overlay .modal h3{
+    font-size: 1.2rem;
+    font-family: 'Raleway', sans-serif;
+    margin:0 0 15px 0;
+    font-weight: 500;
+}
+
+#overlay .modal h3 span{
+    font-weight: 600;
+}
+
+#overlay .modal .button-container .bonus-btn{
     font-size: 18px;
     text-align: center;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--background);
+    color: white;
+    width: 60px;
+    height: 27px;
 }
 
-#overlay .modal .bonus-btn.correct{
-    background: green;
+#overlay .modal .button-container .bonus-btn.correct{
+    background: rgb(63, 186, 103);
 }
 
-#overlay .modal .bonus-btn.incorrect{
-    background: red;
+#overlay .modal .button-container .bonus-btn.incorrect{
+    background: rgb(215, 83, 83);
 }
 
 #bonus-timer{
     width: 75px;
     height: 75px;
-    background: red;
+    background: var(--background);
+    display: flex;
     position: absolute;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
     right: 50%;
     bottom: 10px;
     transform: translate(50%, 0);
+}
+
+#bonus-timer span{
+    font-size: 20px;
+    color: white;
 }
 
 /* Scoring */

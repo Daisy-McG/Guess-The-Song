@@ -289,13 +289,15 @@ function bonusQuestion() {
   let bonusLevel = `
     <div id="overlay">
         <div class="modal">
-        <h2>Bonus Question</h2>
-        <h3>When did ${artist} released ${title}?</h3>
-        <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
-        <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
-        <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
-        <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
-        <div id="bonus-timer"><span>${formatTime(bonusCount)}</span></div>
+            <h2>Bonus Question</h2>
+            <h3>When did <span>${artist}</span> released <span>${title}</span>?</h3>
+            <div class="button-container">
+                <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+                <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+                <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+                <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+            </div>
+            <div id="bonus-timer"><span>${formatTime(bonusCount)}</span></div>
         </div>
     </div>`;
   bonus.innerHTML = bonusLevel;
@@ -316,17 +318,17 @@ function addAPossibleYear(arr) {
 
 /**
  * starts the countdown for the bonus
- */
-function startBonusInterval() {
-  bonusTimerInterval = setInterval(() => {
-    bonusCount -= 1;
-    document.querySelector("#bonus-timer span").innerHTML =
-      formatTime(bonusCount);
+*/
+function startBonusInterval(){
+    let releaseYear = currentSong.release_year;
+    bonusTimerInterval = setInterval(()=>{
+        bonusCount -=1
+        document.querySelector("#bonus-timer span").innerHTML = formatTime(bonusCount);
 
-    if (bonusCount === 0) {
-      loseBonus();
-    }
-  }, 1000);
+        if(bonusCount === 0){
+            loseBonus(releaseYear)
+        }
+    }, 1000)
 }
 
 // Checks if the button pressed is correct
