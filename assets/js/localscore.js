@@ -82,9 +82,9 @@ while (i <= currentLength) {
 tempBoard = tempBoard.sort();
 
 let scoreboardLI;
-let j = 0
+let j = 0;
 while (j <= 5) {
-    scoreboardLI += `<li>${tempBoard[i]}</li>`
+    scoreboardLI += `<li>${tempBoard[i]}</li>`;
     j++;
 }
 document.getElementById("display_high5").innerHTML = scoreboardLI;
