@@ -102,9 +102,9 @@ The game has been tested and played in :
 
 ### Development done by:
 
-* Agustin
-* Carlos
-* [Cheryl](https://www.linkedin.com/in/ccp84/)
-* Claire
-* Daisy
-* Mark
+* [Agustin](https://github.com/cilliagustin)
+* [Carlos](https://github.com/felipesandoli)
+* [Cheryl](https://github.com/ccp84)
+* [Claire](https://github.com/Claire221)
+* [Daisy](https://github.com/Daisy-McG)
+* [Mark](https://github.com/mark279455)
