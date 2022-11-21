@@ -1,7 +1,5 @@
 let score = localStorage.score;
 let username = localStorage.name;
-let unique = String(Date.now());
-let scoreboard = [score, username];
 
 /* Function to be run on page load
 *  Displays final score
@@ -24,7 +22,6 @@ function setScore() {
     // Call the rest of the checking and update functions
     getHighScore();
     checkHighscore();
-    getScoreboard();
 }
 
 /* 
@@ -64,32 +61,6 @@ function checkHighscore() {
         document.getElementById("display_message").innerHTML = "";
     }
 }
-
-/*
-* Scoreboard
-*/
-
-function getScoreboard() {
-let currentLength = localStorage.length;
-let tempBoard = [];
-let keys = Object.keys(localStorage);
-let i = 0;
-while (i <= currentLength) {
-    tempBoard.push(localStorage.getItem(keys[i]));
-    i++;
-}
-
-tempBoard = tempBoard.sort();
-
-let scoreboardLI;
-let j = 0;
-while (j <= 5) {
-    scoreboardLI += `<li>${tempBoard[i]}</li>`;
-    j++;
-}
-document.getElementById("display_high5").innerHTML = scoreboardLI;
-}
-
 
 // Run updates on page load
 document.addEventListener('DOMContentLoaded', function() {
