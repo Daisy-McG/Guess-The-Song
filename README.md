@@ -8,9 +8,6 @@ Guess The Song by Team 11 is a musical quiz designed for the Code Institute Nove
 
 ![Game Screen](/docs/readme/game_image.png)
 
-## Wireframes / Design
-
-
 ## How to play
 
 1. In the main page click on Start Game to go to the game page.
@@ -21,6 +18,192 @@ Guess The Song by Team 11 is a musical quiz designed for the Code Institute Nove
 6. If you guess the answer, a bonus question will appear. This will score additional points if guessed correctly.
 7. The quicker the answer, the more points you get.
 8. You have 3 lives before the game ends.
+
+## Wireframes / Design
+
+### Mobile Concept Designs
+
+![Mobile Start](docs/wireframes/mobile-start.jpg)
+![Mobile Game](docs/wireframes/mobile-game.jpg)
+![Mobile Score](docs/wireframes/mobile-finalscore.jpg)
+
+### Tablet Concept Designs
+
+![Tablet Start](docs/wireframes/tablet-start.jpg)
+![Tablet Game](docs/wireframes/tablet-game.jpg)
+![Tablet Score](docs/wireframes/tablet-finalscore.jpg)
+
+### Desktop Concept Designs
+
+![Desktop Start](docs/wireframes/desktop-start.jpg)
+![Desktop Game](docs/wireframes/desktop-game.jpg)
+![Desktop Score](docs/wireframes/desktop-finalscore.jpg)
+
+### Design
+
+A consistent style was maintained throughout using CSS root variables
+```css
+:root {
+    /* --background: #f79808; */
+    --background: #0f7988;
+    --buttoncolor: #2b78e4;
+    --textcolor: #eeffdd;
+    --bordercolor: #000;
+    --iconcolor: #4D4D4D;
+}
+```
+
+## Development
+
+### Spotify API
+The main functionality is provided by a JSON file. This utilises the song ID and the Spotify API to serve the song file directly from Spotify to the HTML page:
+```js
+let checkSong = () => {
+  // currentSong.id = 3
+  fetch(`https://kareoke.p.rapidapi.com/v1/song/spotify?id=${currentSong.id}`)
+    .then((jsonData) => jsonData.json())
+    .then((data) => songExists(data));
+};
+```
+Functionality is included to check that the song ID is still valid before fetching from Spotify, if invalid it moves onto the next ID in the JSON file:
+```js
+const songExists = (song) => {
+  if (song.msg === `We couldn't find a data with this id`) {
+    getSong();
+  }
+};
+```
+
+### Username Validation
+
+Javascript validation prevents a null value being entered for the Username value. The player is given feedback that this cannot be left blank. 
+
+![Username validation](docs/readme/username_validation.png)
+
+Whitespace is handled efficiently so that only spaces before and after are stripped away:
+```js
+  //get username
+  userName = document.getElementById("user-name").value;
+  // remove white space before and after
+  userName = userName.replace(/^\s+|\s+$/gm, "");
+  ```
+
+  ### Genre Selection
+
+  The option to select song genres was included to give the game more functionality. This is handled by categorising within the JSON file.
+
+  ![Genre Selection](docs/readme/start_box.png)
+
+  As an extra feature, the background of the game screen changes with the selected category.
+  ```js
+    let main = document.getElementById("game-background");
+  if (genre === "Rock") {
+    main.style.backgroundImage = "url('assets/images/drummer.jpg')";
+  } else if (genre === "Pop") {
+    main.style.backgroundImage = "url('assets/images/disco-ball.jpg')";
+  } else if (genre === "Country") {
+    main.style.backgroundImage = "url('assets/images/guitar.jpg')";
+  }
+  ```
+
+  ### Timer
+
+  To keep the game flowing and improve the user experience, a countdown timer was added to each question. This is displayed on screen so it is clear to see how much time is left to answer the question. Colours on the timer change as your time runs out. 
+
+  ```js
+  function setRemainingPathColor(timeLeft) {
+  const { alert, warning, info } = COLOR_CODES;
+  if (timeLeft <= alert.threshold) {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(warning.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(alert.color);
+  } else if (timeLeft <= warning.threshold) {
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.remove(info.color);
+    document
+      .getElementById("base-timer-path-remaining")
+      .classList.add(warning.color);
+  }
+}
+```
+![Timer](docs/readme/timer.png)
+
+### Answer Checking
+
+To account for differing input of answers and special characters contained in the answer strings, some validation is included before comparing the input with the correct answer. This compares both fully lower case strings, and ignores any special characters. 
+```js
+  // Strip special characters from answers
+  const stripAns = answer.replace(/[^a-z0-9]/gi, "").toLowerCase();
+  let actualAns = currentSong.title.toLowerCase();
+  actualAns = actualAns.replace(/[^a-z0-9]/gi, "");
+  ```
+
+### Bonus Questions
+
+When a question is answered correctly, an extra modal pops up allowing the player to answer a bonus question for extra points. 
+
+![Bonus Question](docs/readme/bonus_question.png)
+```js
+ document.getElementById("base-timer-label").innerText = "01:00";
+  let header = document.querySelector("header");
+  let bonus = document.createElement("div");
+  bonus.setAttribute("id", "bonus");
+  document.body.insertBefore(bonus, header);
+  let bonusLevel = `
+    <div id="overlay">
+        <div class="modal">
+            <h2>Bonus Question</h2>
+            <h3>When did <span>${artist}</span> released <span>${title}</span>?</h3>
+            <div class="button-container">
+                <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+                <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+                <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+                <button class="bonus-btn">${addAPossibleYear(possible_dates)}</button>
+            </div>
+            <div id="bonus-timer"><span>${formatTime(bonusCount)}</span></div>
+        </div>
+    </div>`;
+  bonus.innerHTML = bonusLevel;
+  ```
+### Lives
+
+Players have 3 lives, these are lost by running out of time or submitting an incorrect answer. Lives lost are displayed visually on screen for players as the game progresses. 
+
+```js
+const removeLife = () => {
+  livesLeft -= 1;
+  let lives = document.getElementsByClassName("life");
+  if (livesLeft === 2) {
+    lives[1].src = `assets/images/skull-red.svg`;
+  } else if (livesLeft == 1) {
+    lives[2].src = `assets/images/skull-red.svg`;
+  } else {
+    window.location.href = "scoreboard.html";
+  }
+  ```
+
+![Lives](docs/readme/lives.png)
+
+### Scoring
+
+Points scored are higher the quicker you answer the question, with bonus points available for correctly answered bonus questions. 
+```js
+const incrementScore = (score) => {
+  let currentScore = parseInt(document.getElementById("score").innerHTML);
+  //ads 50 points per question + one second per extra second
+  currentScore += 50 + score;
+  document.getElementById("score").innerHTML = currentScore;
+  localStorage.score = currentScore;
+};
+```
+
+Throughout the game, your score is shown and updated on screen within the question box.
+
+![Score display](docs/readme/onscreen_score.png)
 
 ## Deployment
 
@@ -102,9 +285,9 @@ The game has been tested and played in :
 
 ### Development done by:
 
-* Agustin
-* Carlos
-* [Cheryl](https://www.linkedin.com/in/ccp84/)
-* Claire
-* Daisy
-* Mark
+* [Agustin](https://github.com/cilliagustin)
+* [Carlos](https://github.com/felipesandoli)
+* [Cheryl](https://github.com/ccp84)
+* [Claire](https://github.com/Claire221)
+* [Daisy](https://github.com/Daisy-McG)
+* [Mark](https://github.com/mark279455)
