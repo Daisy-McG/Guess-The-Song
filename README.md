@@ -4,11 +4,12 @@
 
 ## Concept
 
-Guess The Song is a music quiz for all. Test your musical knowledge by listening to the clip and typing your answer.
+Guess The Song by Team 11 is a musical quiz designed for the Code Institute November 2020 Hackathon "Hackathon Hero". Listen to the music clip, type your answer, try to get as many questions as possible right before you loose all 3 of your lives. 
 
-## Add Screenshot Here
+![Game Screen](/docs/readme/game_image.png)
 
 ## Wireframes / Design
+
 
 ## How to play
 
@@ -20,7 +21,6 @@ Guess The Song is a music quiz for all. Test your musical knowledge by listening
 6. If you guess the answer, a bonus question will appear. This will score additional points if guessed correctly.
 7. The quicker the answer, the more points you get.
 8. You have 3 lives before the game ends.
-9. You will get added to the leader board at the end if you score in the top 20.
 
 ## Deployment
 
@@ -70,6 +70,19 @@ All files passed through official HTML validator:
 * scoreboard.html
 
 ![HTML](/docs/readme/html.JPG)
+
+### Browsers
+
+The game has been tested and played in :
+
+#### Chrome
+![Chrome](docs/readme/browser_chrome.png)
+
+#### Edge
+![Edge](docs/readme/browser_edge.png)
+
+#### Safari
+![Safari](docs/readme/browser_safari.png)
 
 ## Credits
 

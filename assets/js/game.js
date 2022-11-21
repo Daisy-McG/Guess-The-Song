@@ -322,13 +322,13 @@ function addAPossibleYear(arr) {
 function startBonusInterval(){
     let releaseYear = currentSong.release_year;
     bonusTimerInterval = setInterval(()=>{
-        bonusCount -=1
+        bonusCount -=1;
         document.querySelector("#bonus-timer span").innerHTML = formatTime(bonusCount);
 
         if(bonusCount === 0){
-            loseBonus(releaseYear)
+            loseBonus(releaseYear);
         }
-    }, 1000)
+    }, 1000);
 }
 
 // Checks if the button pressed is correct
