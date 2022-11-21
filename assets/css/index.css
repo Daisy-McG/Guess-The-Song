@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight&family=New+Rocker&family=Raleway&display=swap');
 
 :root {
-    /* --background: #f79808; */
     --background: #0f7988;
     --buttoncolor: #2b78e4;
     --textcolor: #eeffdd;
@@ -21,9 +20,6 @@ body {
 
 body {
     font-family: 'Raleway', sans-serif;
-    /* font-family: 'Pirata One', cursive; */
-    /* font-family: 'Fascinate Inline', cursive; */
-    /* font-family: 'Bungee Shade', cursive; */
     display: flex;
     flex-direction: column;
 }
@@ -34,8 +30,6 @@ main {
     background-image: url("../images/guitar.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    /* background-position: center center fixed;   
-     max-height: 100vh; */
 }
 
 
@@ -159,7 +153,6 @@ li > p {
 #start-button {
     height: 50px;
     background-color: var(--background);
-    /* border: 2px solid var(--textcolor); */
     color: var(--textcolor);
     padding: 0 1rem;
     display: flex;
@@ -202,9 +195,6 @@ footer {
     padding: 0.5% 0;
 }
 
-/* .link-container p {
-    font-size: 1rem;
-} */
 
 .link-container i {
     color: var(--iconcolor);
@@ -216,83 +206,3 @@ footer {
     color: var(--textcolor);
     font-size: 1.5rem;
 }
-
-/* media queries 
-up to 420
-421/548
-549/772
-773/992 and upwards*/
-
-
-/* @media(min-width: 421px) { */
-    /* .title h1{ */
-        /* current font-size: 2rem; */
-        /* font-size: 1.5rem;
-    }
-
-    #welcome { */
-        /* font-size: 1rem; */
-        /* font-size: 1.5rem;
-    }
-
-    #welcome ul>li { */
-        /* padding: 0.1rem; */
-    /* }
-
-    .github { */
-        /* font-size: 0.8rem; */
-    /* }
-
-    #instructions { */
-        /* font-size: 1rem; */
-        /* font-size: 1.5rem;
-    }
-
-    #instructions h2 { */
-        /* font-size: 1.5rem; */
-        /* font-size: 1.5rem;
-    }
-
-    #instructions ol>li {
-        font-size: 1rem;
-        padding-bottom: 0.4rem;
-    }
-} */
-
-/* @media(min-width: 548px) {
-    header {
-        font-size: 2rem;
-    }
-
-    #instructions {
-        font-size: 2rem;
-    }
-
-    #welcome {
-        font-size: 2rem;
-    }
-
-    ol>li {
-        font-size: 1.5rem;
-        padding-bottom: 0.4rem;
-    }
-}
-
-@media(min-width: 772px) {
-    header {
-        font-size: 2.5rem;
-    }
-
-    #instructions {
-        font-size: 2.5rem;
-    }
-
-    #welcome {
-        font-size: 2.5rem;
-    }
-
-    ol>li {
-        font-size: 2rem;
-        padding-bottom: 0.6rem;
-    }
-} */
