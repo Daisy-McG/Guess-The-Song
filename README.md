@@ -21,6 +21,38 @@ Guess The Song by Team 11 is a musical quiz designed for the Code Institute Nove
 
 ## Wireframes / Design
 
+### Mobile Concept Designs
+
+![Mobile Start](docs/wireframes/mobile-start.jpg)
+![Mobile Game](docs/wireframes/mobile-game.jpg)
+![Mobile Score](docs/wireframes/mobile-finalscore.jpg)
+
+### Tablet Concept Designs
+
+![Tablet Start](docs/wireframes/tablet-start.jpg)
+![Tablet Game](docs/wireframes/tablet-game.jpg)
+![Tablet Score](docs/wireframes/tablet-finalscore.jpg)
+
+### Desktop Concept Designs
+
+![Desktop Start](docs/wireframes/desktop-start.jpg)
+![Desktop Game](docs/wireframes/desktop-game.jpg)
+![Desktop Score](docs/wireframes/desktop-finalscore.jpg)
+
+### Design
+
+A consistent style was maintained throughout using CSS root variables
+```css
+:root {
+    /* --background: #f79808; */
+    --background: #0f7988;
+    --buttoncolor: #2b78e4;
+    --textcolor: #eeffdd;
+    --bordercolor: #000;
+    --iconcolor: #4D4D4D;
+}
+```
+
 ## Development
 
 ### Spotify API
