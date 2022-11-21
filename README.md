@@ -6,7 +6,7 @@
 
 Guess The Song is a music quiz for all. Test your musical knowledge by listening to the clip and typing your answer.
 
-## Add Screenshot Here
+![Game Screen](/docs/readme/game_image.png)
 
 ## Wireframes / Design
 
