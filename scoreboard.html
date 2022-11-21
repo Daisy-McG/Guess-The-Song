@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- font awesome link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/scoreboard.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- font awesome link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/scoreboard.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <header>
-        <div id="title">
-          <div class="home">
-            <a href="index.html" aria-label="Back to home page">
-              <img src="assets/images/home.svg" alt="Home Icon" class="life" />
-            </a>
-          </div>
-          <h1>Guess The Song</h1>
-          <div></div>
-        </div>
-      </header>
-    
-    <main>
-        <h2 class="scoreboard">Final Score</h2>
-        <section class="scoreboard">
-            <ul>
-                <li id="new_score">
-                    <i class="fa-solid fa-music"></i>
-                    <p> Loading your score...</p>
-                </li>
-                <li id="high_score">
-                    <i class="fa-solid fa-music"></i>
-                    <p>Loading previous high score...</p>
-                </li>
-            <div class="content" id="display_message">Checking for new high score...</div>
-        </section>
-        <section class="scoreboard">
-          <div class="content">
-            <h2>Top Scores</h2>
-            <ul id="display_high5">
-              <li>
-                <i class="fa-solid fa-music"></i>
-                <p>Loading Top Scores...</p>
-              </li>
-            </ul>
-          </div>
-        </section>
-    </main>
-    
-    <footer>
-    </footer>
-    
-    <script src="assets/js/localscore.js"></script>
-  </body>
+  <header>
+    <div id="title">
+      <div class="home">
+        <a href="index.html" aria-label="Back to home page">
+          <img src="assets/images/home.svg" alt="Home Icon" class="life">
+        </a>
+      </div>
+      <h1>Guess The Song</h1>
+      <div></div>
+    </div>
+  </header>
+
+  <main>
+    <h2 class="scoreboard">Final Score</h2>
+    <div class="scoreboard">
+      <ul>
+        <li id="new_score">
+          <i class="fa-solid fa-music"></i>
+          <p> Loading your score...</p>
+        </li>
+        <li id="high_score">
+          <i class="fa-solid fa-music"></i>
+          <p>Loading previous high score...</p>
+        </li>
+        <li>
+          <div class="content" id="display_message">Checking for new high score...</div>
+        </li>
+      </ul>
+    </div>
+    <section class="scoreboard">
+      <div class="content">
+        <h2>Top Scores</h2>
+        <ul id="display_high5">
+          <li>
+            <i class="fa-solid fa-music"></i>
+            <p>Loading Top Scores...</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+  </footer>
+
+  <script src="assets/js/localscore.js"></script>
+</body>
+
 </html>
