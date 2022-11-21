@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 let score = localStorage.score;
 let username = localStorage.name;
 
@@ -8,7 +9,6 @@ let username = localStorage.name;
 function setScore() {
     // Print to score page
     if(score > 0){
-        localStorage.setItem(unique, scoreboard);
         document.getElementById("new_score").innerHTML = `
         <i class="fa-solid fa-music"></i>
         <p> Well done ${username}. </p>
